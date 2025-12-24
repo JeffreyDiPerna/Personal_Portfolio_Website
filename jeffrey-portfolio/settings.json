@@ -1,0 +1,6 @@
+
+{
+  "files.associations": {
+    "**/src/app/**/*.js": "javascriptreact"
+  }
+}
