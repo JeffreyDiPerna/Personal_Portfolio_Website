@@ -1,141 +1,103 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
 
-  --text-primary: #000;
-  --text-secondary: #666;
+/* src/app/page.module.css
+   Home page styles — white background, blue + lavender accents
+   Works with classes used in src/app/page.jsx:
+   - styles.main
+   - styles.navList
+   - styles.navLink
+*/
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
-
+/* Page wrapper */
 .main {
-  display: flex;
   min-height: 100vh;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
-}
-
-.intro {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
-}
-
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+
+  /* Spacing mirrors globals.css scale */
+  padding: var(--space-6);
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+/* Title spacing tweaks (h1/p inherit global typography) */
+.main > h1 {
+  margin-bottom: var(--space-2);
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.main > p {
+  color: var(--muted);
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
+/* Grid for the four nav items */
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0 0;
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+
+  width: 100%;
+  max-width: 640px; /* keeps a nice readable width */
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+/* Two columns on small/medium screens, stays neat on large */
+@media (min-width: 480px) {
+  .navList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+/* Button-like links */
+.navLink {
+  display: block;
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
 
-  .page {
-    --background: #000;
-    --foreground: #000;
+  /* Soft card background with subtle depth */
+  background: linear-gradient(180deg, var(--primary-contrast), #ffffff 60%);
+  box-shadow: var(--shadow-1);
 
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+  /* Smooth micro-interactions */
+  transition:
+    transform 80ms ease,
+    box-shadow 120ms ease,
+    background 140ms ease,
+    border-color 140ms ease;
 }
+
+/* Hover: slight lift + lavender wash */
+.navLink:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--border) 55%, var(--primary) 45%);
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    color-mix(in oklab, var(--lavender) 18%, #ffffff 82%)
+  );
+}
+
+/* Active: return to rest position */
+.navLink:active {
+  transform: translateY(0);
+}
+
+/* Accessible focus ring in lavender */
+.navLink:focus-visible {
+  outline: 3px solid var(--lavender);
+  outline-offset: 2px;
+}
+
+/* Optional: subtle icon caret (disabled by default)
+.navLink::after {
+  content: "↗";
+  float: right;
+  color: var(--primary);
+  opacity: 0.6;
+}
+*/

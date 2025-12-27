@@ -1,21 +1,27 @@
 
-/* src/app/globals.css */
+/* src/app/globals.css
+   Global theme: white background with blue + lavender accents
+   Works with Next.js App Router and your module CSS files
+*/
 
-/* ------------------------------
+/* --------------------------------
    Theme tokens (edit freely)
 ---------------------------------*/
 :root {
-  /* Colors (light theme) */
+  /* Base colors */
   --bg: #ffffff;
-  --text: #0f172a;          /* slate-900 */
+  --text: #0f172a;          /* deep slate */
   --muted: #475569;         /* slate-600 */
   --border: #e5e7eb;        /* slate-200 */
-  --primary: #2563eb;       /* blue-600 */
-  --primary-contrast: #f0f7ff;
-  --focus: #22d3ee;         /* cyan-400 */
 
-  /* Sizing & spacing scale */
-  --max-w: 64rem;           /* ~1024px content width */
+  /* Accents */
+  --primary: #2563eb;       /* blue */
+  --lavender: #c4b5fd;      /* lavender */
+  --primary-contrast: #f6f8ff; /* soft blue-tinted surface */
+  --focus: #2563eb;         /* match primary for focus ring */
+
+  /* Layout scale */
+  --max-w: 64rem;           /* ~1024px */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -24,32 +30,38 @@
   --space-6: 32px;
   --space-7: 48px;
 
-  /* Radii & shadow */
+  /* Shape & shadow */
   --radius: 12px;
   --shadow-1: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06);
 }
 
-/* Optional dark mode — auto switches by user preference */
+/* Optional dark mode — keeps blue + lavender vibe */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0b1220;          /* deep slate */
     --text: #e6edf3;        /* light text */
     --muted: #94a3b8;       /* slate-400 */
     --border: #1f2937;      /* slate-800 */
-    --primary: #60a5fa;     /* blue-400 */
+
+    --primary: #60a5fa;     /* lighter blue for dark bg */
+    --lavender: #a78bfa;    /* indigo-lavender on dark */
     --primary-contrast: #0b1220;
-    --focus: #22d3ee;
+    --focus: var(--primary);
   }
 }
 
-/* ------------------------------
+/* --------------------------------
    Reset & base
 ---------------------------------*/
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after {
+  box-sizing: border-box;
+}
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
 
 body {
   margin: 0;
@@ -64,23 +76,49 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Improve defaults */
-img, svg, video { max-width: 100%; height: auto; }
-a { color: var(--primary); text-decoration: none; }
-a:hover { text-decoration: underline; }
-:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-::selection { background: var(--primary); color: #fff; }
+/* Media defaults */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+}
 
-/* ------------------------------
+/* Links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Focus ring for accessibility */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Text selection — lavender accent */
+::selection {
+  background: var(--lavender);
+  color: #0b1220;
+}
+
+/* --------------------------------
    Layout defaults
 ---------------------------------*/
 main {
   max-width: var(--max-w);
   padding: var(--space-6);
   margin: 0 auto;
+  color: var(--primary);
 }
 
-/* ------------------------------
+/* Space direct children in main */
+main > * + * {
+  margin-top: var(--space-4);
+}
+
+/* --------------------------------
    Typography scale
 ---------------------------------*/
 h1, h2, h3 {
@@ -91,7 +129,7 @@ h1, h2, h3 {
 
 h1 {
   font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
 p {
@@ -99,17 +137,30 @@ p {
   color: var(--muted);
 }
 
-/* Space blocks */
-main > * + * { margin-top: var(--space-4); }
-
-/* ------------------------------
-   Utility classes (optional)
+/* --------------------------------
+   Utilities
 ---------------------------------*/
-.container { max-width: var(--max-w); margin-inline: auto; padding-inline: var(--space-6); }
-.visually-hidden { position: absolute !important; width: 1px; height: 1px; clip: rect(0 0 0 0); clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0; padding: 0; margin: -1px; }
+.container {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
 
-/* ------------------------------
-   Button-like anchors (for later)
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
+  margin: -1px;
+}
+
+/* --------------------------------
+   Button-like anchors (optional)
 ---------------------------------*/
 .btn {
   display: inline-block;
@@ -119,9 +170,22 @@ main > * + * { margin-top: var(--space-4); }
   background: var(--primary-contrast);
   color: var(--text);
   box-shadow: var(--shadow-1);
-  transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
+  transition:
+    transform .08s ease,
+    box-shadow .12s ease,
+    background .12s ease,
+    border-color .12s ease;
   font-weight: 600;
 }
 
-.btn:hover { transform: translateY(-1px); }
-.btn:active { transform: translateY(0); }
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--primary);
+  background:
+    linear-gradient(180deg, var(--primary-contrast), #ffffff 60%);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--lavender);
+  outline-offset: 2px;
+}

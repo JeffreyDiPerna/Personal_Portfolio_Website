@@ -6,8 +6,9 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <h1>Jeffrey Di Perna</h1>
-      <p>Personal portfolio — About, Projects, Experiences, Contact.</p>
+      <h1>Hello, I'm Jeffrey Di Perna</h1>
+      <p>Computer Engineering Student @ Queen's University</p>
+      <p>Come explore my portfolio of projects, skills, and experiences.</p>
 
       <ul className={styles.navList}>
         <li>
