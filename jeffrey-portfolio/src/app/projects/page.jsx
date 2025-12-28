@@ -18,7 +18,14 @@ export default function ProjectsPage() {
           <li>Implemented CNNs in Python; supervised learning pipeline.</li>
         </ul>
       </section>
-
+      <section>
+        <h2>HOOPP Cards</h2>
+        <p>Sep 2025 – Dec 2025</p>
+        <ul>
+          <li>Built secure site using C++ and QT frameworks to combine trading cards and fantasy basketball into one user experience</li>
+          <li>Contributed front‑end UI in HTML/CSS.</li>
+        </ul>
+      </section>
       <section>
         <h2>Queen’s Hyperloop Design Team Website</h2>
         <p>Jan 2024 – Apr 2024</p>
