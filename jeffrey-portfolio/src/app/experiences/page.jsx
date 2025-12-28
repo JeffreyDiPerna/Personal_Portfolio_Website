@@ -14,8 +14,9 @@ export default function ExperiencesPage() {
         <h2>Machine Learning Engineer — QMIND</h2>
         <p>Sep 2024 – Present, Kingston, ON</p>
         <ul>
-          <li>Built RAG-driven instruction generation; piloted with 50+ patients in clinical use.</li>
+          <li>Building RAG-driven instruction generation; piloted with 50+ patients in clinical use.</li>
           <li>Enabled clinician self-serve uploads and QR code delivery for scalable access.</li>
+          <li>Synthesized generative AI responses with scientific literature and patient medical data to ensure optimal patient guidance, achieving 89% accuracy with physician recommendations</li>
         </ul>
       </section>
 
@@ -25,6 +26,7 @@ export default function ExperiencesPage() {
         <ul>
           <li>Service to analyze resume structure/keywords, improving callback rates in testing.</li>
           <li>Applied NLP to enhance ATS effectiveness.</li>
+          <li>Designed a MongoDB architecture to protect sensitive student information</li>
         </ul>
       </section>
 
@@ -34,6 +36,7 @@ export default function ExperiencesPage() {
         <ul>
           <li>Expanded QMIND’s external network by 25%.</li>
           <li>Built relationships with alumni, mentors, and industry stakeholders.</li>
+          <li>Integrated environment sensors for temperature and voltage to improve response time for data center issues by 18%</li>
         </ul>
       </section>
 
