@@ -14,8 +14,12 @@ export default function ProjectsPage() {
         <h2>AI‑Powered American Sign Language Recognition</h2>
         <p>Sep 2024 – Mar 2025</p>
         <ul>
-          <li>Engineered real‑time ASL gesture detection with ~90% accuracy.</li>
-          <li>Implemented CNNs in Python; supervised learning pipeline.</li>
+          <li>Engineered a deep-learning ASL gesture detection tool trained on 2000+ videos, achieving  90% accuracy</li>
+          <li>Implemented Convolutional Neural Networks (CNNs) using Python, Hugging Face, and supervised learning</li>
+          <li>Adapted 3D-to-2D CNN with temporal stacking, cutting the required compute by 62%</li>
+          <li>First place at Microsoft Firm Day Hackathon</li>
+          <li>Winner of the Social Impact Award at the Canadian Conference for Artificial Intelligence</li>
+
         </ul>
       </section>
       <section>
