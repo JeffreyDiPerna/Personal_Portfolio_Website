@@ -26,7 +26,7 @@ export default function ExperiencesPage() {
         <ul>
           <li>Service to analyze resume structure/keywords, improving callback rates in testing.</li>
           <li>Applied NLP to enhance ATS effectiveness.</li>
-          <li>Designed a MongoDB architecture to protect sensitive student information</li>
+          <li>Designed a secure database using MongoDB, yielding zero incidents throughout deployment</li>
         </ul>
       </section>
 

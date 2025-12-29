@@ -22,8 +22,8 @@ export default function ProjectsPage() {
         <h2>HOOPP Cards</h2>
         <p>Sep 2025 – Dec 2025</p>
         <ul>
-          <li>Built secure site using C++ and QT frameworks to combine trading cards and fantasy basketball into one user experience</li>
-          <li>Contributed front‑end UI in HTML/CSS.</li>
+          <li>Built a full-stack fantasy basketball application, keeping interactions under 200ms using C++ and QT</li>
+          <li>Created a responsive system to manage 70+ user accounts and data from 400+ NBA players with SQL</li>
         </ul>
       </section>
       <section>
