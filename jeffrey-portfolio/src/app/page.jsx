@@ -23,8 +23,8 @@ const styles = {
   },
   imageWrapper: {
     margin: "0 auto 20px",
-    width: 150,
-    height: 150,
+    width: 300,               // <-- fixed width
+    height: 250,              // <-- fixed height
     borderRadius: "50%",
     overflow: "hidden",
     border: "3px solid #1f2937",
@@ -57,29 +57,24 @@ export default function Home() {
   return (
     <main style={styles.main}>
       <section style={styles.container}>
-        {/* Profile image */}
+        {/* Fixed 300x300 circular profile image */}
         <div style={styles.imageWrapper}>
-          <Image
-            src="/Headshot.jpg" // ensure this file exists in /public
-            alt="Jeffrey Di Perna"
-            width={250}
-            height={250}
-          />
+          <Image src="/Headshot.png" alt="Jeffrey Di Perna" width={300} height={250} />
         </div>
 
         <h1 style={styles.title}>Jeffrey Di Perna</h1>
-        <p style={styles.subtitle}>Computer Engineering @ Queen's University</p>
+        <p style={styles.subtitle}>Computer Engineering Student @ Queen&apos;s University</p>
         <p style={styles.blurb}>Come explore my portfolio of projects, skills, and experiences.</p>
 
         {/* Navigation buttons */}
         <nav style={styles.grid}>
-          <Link href="/about" className="btn" aria-label="About">About</Link>
-          <Link href="/projects" className="btn" aria-label="Projects">Projects</Link>
-          <Link href="/experiences" className="btn" aria-label="Experiences">Experiences</Link>
-          <Link href="/contact" className="btn" aria-label="Contact">Contact</Link>
+          <Link href="/about" className="btn">About</Link>
+          <Link href="/projects" className="btn">Projects</Link>
+          <Link href="/experiences" className="btn">Experiences</Link>
+          <Link href="/contact" className="btn">Contact</Link>
         </nav>
 
-        {/* Hover styles via styled-jsx (requires 'use client' at top) */}
+        {/* Hover styles via styled-jsx */}
         <style jsx>{`
           .btn {
             display: inline-flex;
@@ -100,7 +95,6 @@ export default function Home() {
             color: #0f172a;      /* slate-900 */
             transform: translateY(-1px);
           }
-          /* Disable hover effects on touch-only devices */
           @media (hover: none) {
             .btn:hover {
               background: #1f2937;
@@ -113,4 +107,3 @@ export default function Home() {
     </main>
   );
 }
-``
