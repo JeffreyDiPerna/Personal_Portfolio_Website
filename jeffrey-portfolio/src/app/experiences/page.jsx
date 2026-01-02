@@ -48,6 +48,16 @@ export default function ExperiencesPage() {
           <li>Installed, upgraded, and removed hardware to maintain/scale data centers.</li>
         </ul>
       </section>
+
+      <section>
+        <h2>Technical Skills </h2>
+        <ul>
+          <li>Languages: Python, C, C++,   HTML, CSS, Java, JavaScript, Assembly, MATLAB</li>
+          <li>Libraries: NumPy, Pandas, Scikit-learn, TensorFlow, PyTorch, Matplotlib, Hugging Face, Mongoose</li>
+          <li>Frameworks: React.js, Next.js, Flask, Qt, .NET</li>
+          <li>Developer Tools:  Git, Docker, Linux, MongoDB, REST APIs, SQL, Node.js</li>
+        </ul>
+      </section>
     </main>
   );
 }
