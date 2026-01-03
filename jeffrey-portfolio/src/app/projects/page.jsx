@@ -1,4 +1,4 @@
-
+import Header from "../components/header.jsx";
 // src/app/projects/page.js
 export const metadata = {
   title: 'Projects | Jeffrey Di Perna',
@@ -8,6 +8,7 @@ export const metadata = {
 export default function ProjectsPage() {
   return (
     <main>
+      <Header />
       <h1>Projects</h1>
 
       <section>

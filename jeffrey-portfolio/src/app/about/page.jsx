@@ -1,8 +1,9 @@
-
+import Header from "../components/header.jsx";
 // src/app/about/page.js
 export default function AboutPage() {
   return (
     <main>
+      <Header />
       <h1>About</h1>
       <p>
         I’m Jeffrey Di Perna — Computer Engineering student at Queen’s University. I build

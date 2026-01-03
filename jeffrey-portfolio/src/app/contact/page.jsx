@@ -1,67 +1,71 @@
-
+import Header from "../components/header.jsx";
 // src/app/contact/page.jsx
 
 export default function ContactPage() {
   return (
-    <main style={styles.main}>
-      <section style={styles.section}>
-        <h1 style={styles.title}>Contact</h1>
+    <>
+      <Header /> 
+      <main style={styles.main}>
+        <Header />
+        <section style={styles.section}>
+          <h1 style={styles.title}>Contact</h1>
 
-        <ul style={styles.list}>
-          <li style={styles.item}>
-            Email:{" "}
-            <a href="mailto:jeffrey.diperna@gmail.com" style={styles.link}>
-              jeffrey.diperna@gmail.com
-            </a>
-          </li>
+          <ul style={styles.list}>
+            <li style={styles.item}>
+              Email:{" "}
+              <a href="mailto:jeffrey.diperna@gmail.com" style={styles.link}>
+                jeffrey.diperna@gmail.com
+              </a>
+            </li>
 
-          <li style={styles.item}>
-            Phone:{" "}
-            <a href="tel:+19056161978" style={styles.link}>
-              +1 (905) 616-1978
-            </a>
-          </li>
+            <li style={styles.item}>
+              Phone:{" "}
+              <a href="tel:+19056161978" style={styles.link}>
+                +1 (905) 616-1978
+              </a>
+            </li>
 
-          <li style={styles.item}>
-            LinkedIn:{" "}
-            <a
-              href="https://www.linkedin.com/in/jeffrey-di-perna-39ab101a3/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.link}
-            >
-              LinkedIn
-            </a>
-          </li>
+            <li style={styles.item}>
+              LinkedIn:{" "}
+              <a
+                href="https://www.linkedin.com/in/jeffrey-di-perna-39ab101a3/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.link}
+              >
+                LinkedIn
+              </a>
+            </li>
 
-          <li style={styles.item}>
-            GitHub:{" "}
-            <a
-              href="https://github.com/JeffreyDiPerna"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.link}
-            >
-              GitHub
-            </a>
-          </li>
+            <li style={styles.item}>
+              GitHub:{" "}
+              <a
+                href="https://github.com/JeffreyDiPerna"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.link}
+              >
+                GitHub
+              </a>
+            </li>
 
-          <li style={styles.item}>
-            {" "}
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              type="application/pdf"
-              style={styles.button}
-              aria-label="Open Jeffrey Di Perna's Resume"
-            >
-              Resume
-            </a>
-          </li>
-        </ul>
-      </section>
-    </main>
+            <li style={styles.item}>
+              {" "}
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                type="application/pdf"
+                style={styles.button}
+                aria-label="Open Jeffrey Di Perna's Resume"
+              >
+                Resume
+              </a>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </> 
   );
 }
 

@@ -1,4 +1,4 @@
-
+import Header from "../components/header.jsx";
 // src/app/experiences/page.js
 export const metadata = {
   title: 'Experiences | Jeffrey Di Perna',
@@ -8,6 +8,7 @@ export const metadata = {
 export default function ExperiencesPage() {
   return (
     <main>
+      <Header />
       <h1>Experiences</h1>
 
       <section>
