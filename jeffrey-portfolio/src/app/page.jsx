@@ -22,13 +22,14 @@ const styles = {
     textAlign: "center",
   },
   imageWrapper: {
+    position: "relative",
     margin: "0 auto 20px",
-    width: 300,               // <-- fixed width
-    height: 250,              // <-- fixed height
+    width: "min(40vw, 280px)", // responsive max size
+    aspectRatio: "1 / 1",      // maintain perfect square
     borderRadius: "50%",
     overflow: "hidden",
-    border: "3px solid #1f2937",
     boxShadow: "0 10px 25px rgba(0,0,0,0.35)",
+
   },
   title: {
     margin: 0,
