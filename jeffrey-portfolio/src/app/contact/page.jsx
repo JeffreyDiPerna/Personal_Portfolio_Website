@@ -5,8 +5,8 @@ export default function ContactPage() {
   return (
     <>
       <Header /> 
+
       <main style={styles.main}>
-        <Header />
         <section style={styles.section}>
           <h1 style={styles.title}>Contact</h1>
 
@@ -26,7 +26,7 @@ export default function ContactPage() {
             </li>
 
             <li style={styles.item}>
-              LinkedIn:{" "}
+              {" "}
               <a
                 href="https://www.linkedin.com/in/jeffrey-di-perna-39ab101a3/"
                 target="_blank"
@@ -38,7 +38,7 @@ export default function ContactPage() {
             </li>
 
             <li style={styles.item}>
-              GitHub:{" "}
+              {" "}
               <a
                 href="https://github.com/JeffreyDiPerna"
                 target="_blank"
