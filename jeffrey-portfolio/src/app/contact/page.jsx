@@ -80,7 +80,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     background: "#ffffff", // white
-    color: "#0f172a",      // deep slate
+    color: "#2563eb",      // primary blue
     fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
     padding: 24,
   },
@@ -110,7 +110,7 @@ const styles = {
     height: "120px",
     borderRadius: 8,
     background: "#ffffff",
-    color: "#0f172a",
+    color: "#2563eb",
     textDecoration: "none",
     fontWeight: 700,
     letterSpacing: "0.02em",

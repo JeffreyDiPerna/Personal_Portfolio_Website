@@ -25,7 +25,7 @@ const styles = {
     display: "inline-flex",
     alignItems: "center",
     gap: 10,
-    color: "#0f172a",            // deep slate
+    color: "#2563eb",            // primary blue
     textDecoration: "none",
     fontWeight: 800,
     letterSpacing: "0.03em",
@@ -38,7 +38,7 @@ const styles = {
     padding: "8px 12px",
     borderRadius: 8,
     background: "#ffffff",       // white
-    color: "#0f172a",            // deep slate
+    color: "#2563eb",            // primary blue
     textDecoration: "none",
     fontWeight: 700,
     letterSpacing: "0.02em",

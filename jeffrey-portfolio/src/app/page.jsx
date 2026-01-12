@@ -12,7 +12,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     background: "#ffffff", // white
-    color: "#0f172a",      // deep slate
+    color: "#2563eb",      // primary blue
     fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
     padding: 24,
   },
