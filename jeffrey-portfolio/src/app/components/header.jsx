@@ -9,8 +9,8 @@ const styles = {
     top: 0,
     zIndex: 50,
     width: "100%",
-    background: "#0b1220",       // a touch darker than the page background
-    borderBottom: "1px solid rgba(255,255,255,0.08)",
+    background: "#ffffff",       // white
+    borderBottom: "1px solid #0f172a", // outline same as header text color
     backdropFilter: "blur(6px)",
   },
   wrapper: {
@@ -25,7 +25,7 @@ const styles = {
     display: "inline-flex",
     alignItems: "center",
     gap: 10,
-    color: "#e5e7eb",            // gray-200
+    color: "#0f172a",            // deep slate
     textDecoration: "none",
     fontWeight: 800,
     letterSpacing: "0.03em",
@@ -37,11 +37,12 @@ const styles = {
     justifyContent: "center",
     padding: "8px 12px",
     borderRadius: 8,
-    background: "#1f2937",       // gray-800
-    color: "#e5e7eb",
+    background: "#ffffff",       // white
+    color: "#0f172a",            // deep slate
     textDecoration: "none",
     fontWeight: 700,
     letterSpacing: "0.02em",
+    border: "1px solid #0f172a", // outline
     boxShadow: "0 1px 2px rgba(0,0,0,0.25)",
     transition: "transform 120ms ease, background 120ms ease, color 120ms ease",
   },
