@@ -11,8 +11,8 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: "#0f172a", // slate-900
-    color: "#e5e7eb",      // gray-200
+    background: "#ffffff", // white
+    color: "#0f172a",      // deep slate
     fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
     padding: 24,
   },
