@@ -4,6 +4,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import PageTransition from "./components/PageTransition";
 
 const styles = {
   main: {
@@ -56,7 +57,8 @@ const styles = {
 
 export default function Home() {
   return (
-    <main style={styles.main}>
+    <PageTransition>
+      <main style={styles.main}>
       <section style={styles.container}>
         {/* Fixed 300x300 circular profile image */}
         <div style={styles.imageWrapper}>
@@ -107,5 +109,6 @@ export default function Home() {
         `}</style>
       </section>
     </main>
+    </PageTransition>
   );
 }

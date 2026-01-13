@@ -1,13 +1,12 @@
-import Header from "../components/header.jsx";
-// src/app/experiences/page.js
-export const metadata = {
-  title: 'Experiences | Jeffrey Di Perna',
-  description: 'Professional and club experiences',
-};
+'use client';
 
+import Header from "../components/header.jsx";
+import PageTransition from "../components/PageTransition";
+
+// src/app/experiences/page.js
 export default function ExperiencesPage() {
   return (
-    <>
+    <PageTransition>
       <Header />
       <main style={styles.main}>
         <div style={styles.container}>
@@ -63,7 +62,7 @@ export default function ExperiencesPage() {
           </section>
         </div>
       </main>
-    </>
+    </PageTransition>
   );
 }
 

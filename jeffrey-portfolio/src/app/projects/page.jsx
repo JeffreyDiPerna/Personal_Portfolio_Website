@@ -1,13 +1,12 @@
-import Header from "../components/header.jsx";
-// src/app/projects/page.js
-export const metadata = {
-  title: 'Projects | Jeffrey Di Perna',
-  description: 'Selected projects — ASL recognition, Hyperloop team website, and more.',
-};
+'use client';
 
+import Header from "../components/header.jsx";
+import PageTransition from "../components/PageTransition";
+
+// src/app/projects/page.js
 export default function ProjectsPage() {
   return (
-    <>
+    <PageTransition>
       <Header />
       <main style={styles.main}>
         <div style={styles.container}>
@@ -43,7 +42,7 @@ export default function ProjectsPage() {
           </section>
         </div>
       </main>
-    </>
+    </PageTransition>
   );
 }
 

@@ -1,9 +1,13 @@
+'use client';
+
 import Header from "../components/header.jsx";
+import PageTransition from "../components/PageTransition";
+
 // src/app/contact/page.jsx
 
 export default function ContactPage() {
   return (
-    <>
+    <PageTransition>
       <Header /> 
 
       <main style={styles.main}>
@@ -69,7 +73,7 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-    </> 
+    </PageTransition> 
   );
 }
 

@@ -1,8 +1,12 @@
+'use client';
+
 import Header from "../components/header.jsx";
+import PageTransition from "../components/PageTransition";
+
 // src/app/about/page.js
 export default function AboutPage() {
   return (
-    <>
+    <PageTransition>
       <Header />
       <main style={styles.main}>
         <section style={styles.section}>
@@ -14,7 +18,7 @@ export default function AboutPage() {
           </p>
         </section>
       </main>
-    </>
+    </PageTransition>
   )
 }
 
