@@ -83,8 +83,9 @@ export default function Home() {
             justify-content: center;
             padding: 14px 16px;
             border-radius: 10px;
-            background: #1f2937; /* gray-800 */
-            color: #e5e7eb;      /* gray-200 */
+            background: #ffffff;
+            color: #2563eb;
+            border: 1px solid #2563eb;
             text-decoration: none;
             font-weight: 700;
             letter-spacing: 0.02em;
@@ -92,14 +93,14 @@ export default function Home() {
             transition: transform 120ms ease, background 120ms ease, color 120ms ease;
           }
           .btn:hover {
-            background: #3b82f6; /* blue-500 */
-            color: #0f172a;      /* slate-900 */
+            background: #2563eb;
+            color: #ffffff;
             transform: translateY(-1px);
           }
           @media (hover: none) {
             .btn:hover {
-              background: #1f2937;
-              color: #e5e7eb;
+              background: #ffffff;
+              color: #2563eb;
               transform: none;
             }
           }

@@ -10,7 +10,7 @@ const styles = {
     zIndex: 50,
     width: "100%",
     background: "#ffffff",       // white
-    borderBottom: "1px solid #0f172a", // outline same as header text color
+    borderBottom: "2px solid #c4b5fd", // lavender accent
     backdropFilter: "blur(6px)",
   },
   wrapper: {
@@ -37,12 +37,12 @@ const styles = {
     justifyContent: "center",
     padding: "8px 12px",
     borderRadius: 8,
-    background: "#ffffff",       // white
+    background: "#c4b5fd",       // lavender accent
     color: "#2563eb",            // primary blue
     textDecoration: "none",
     fontWeight: 700,
     letterSpacing: "0.02em",
-    border: "1px solid #0f172a", // outline
+    border: "1px solid #c4b5fd", // lavender border
     boxShadow: "0 1px 2px rgba(0,0,0,0.25)",
     transition: "transform 120ms ease, background 120ms ease, color 120ms ease",
   },
