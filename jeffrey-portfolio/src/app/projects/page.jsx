@@ -25,6 +25,14 @@ export default function ProjectsPage() {
         </ul>
           </section>
           <section style={styles.section}>
+            <h2 style={styles.subtitle}>AI Stock Price Predictor</h2>
+        <p>Dec 2025 – Jan 2026</p>
+        <ul>
+          <li>Developed a time-series forecasting pipeline that processes historical stock data using Python, PyTorch, and a long-short term memory architecture</li>
+          <li>Trained the model to achieve an error &lt; 4% to the actual stock price using Adam optimization</li>
+        </ul>
+          </section>
+          <section style={styles.section}>
             <h2 style={styles.subtitle}>HOOPP Cards</h2>
         <p>Sep 2025 – Dec 2025</p>
         <ul>
