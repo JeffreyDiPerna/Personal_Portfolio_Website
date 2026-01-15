@@ -38,7 +38,6 @@ export default function ExperiencesPage() {
         <ul>
           <li>Expanded QMIND’s external network by 25%.</li>
           <li>Built relationships with alumni, mentors, and industry stakeholders.</li>
-          <li>Integrated environment sensors for temperature and voltage to improve response time for data center issues by 18%</li>
         </ul>
           </section>
 
@@ -46,20 +45,12 @@ export default function ExperiencesPage() {
             <h2 style={styles.subtitle}>Systems Administrator — Trillium Health Partners</h2>
         <p>Jun 2025 – Aug 2025, Mississauga, ON</p>
         <ul>
-          <li>Modeled virtual data centers in Sunbird DCIM; monitored 20+ racks across sites.</li>
-          <li>Installed, upgraded, and removed hardware to maintain/scale data centers.</li>
+          <li>Built virtual data center models in Sunbird DCIM to monitor 20+ server racks in real time across multiple locations</li>
+          <li>Executed hardware install/upgrade/decommission cycles to scale data centers for patient medical record storage</li>
+          <li>Integrated environment sensors for temperature and voltage to improve response time for data center issues by 18%</li>
         </ul>
           </section>
 
-          <section style={styles.section}>
-            <h2 style={styles.subtitle}>Technical Skills</h2>
-        <ul>
-          <li>Languages: Python, C, C++,   HTML, CSS, Java, JavaScript, Assembly, MATLAB</li>
-          <li>Libraries: NumPy, Pandas, Scikit-learn, TensorFlow, PyTorch, Matplotlib, Hugging Face, Mongoose</li>
-          <li>Frameworks: React.js, Next.js, Flask, Qt, .NET</li>
-          <li>Developer Tools:  Git, Docker, Linux, MongoDB, REST APIs, SQL, Node.js</li>
-            </ul>
-          </section>
         </div>
       </main>
     </PageTransition>

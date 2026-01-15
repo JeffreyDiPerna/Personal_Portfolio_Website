@@ -66,8 +66,8 @@ export default function Home() {
         </div>
 
         <h1 style={styles.title}>Jeffrey Di Perna</h1>
-        <p style={styles.subtitle}>Computer Engineering Student @ Queen&apos;s University</p>
-        <p style={styles.blurb}>Come explore my portfolio of projects, skills, and experiences.</p>
+        <p style={styles.subtitle}> <b>Computer Engineering Student @ Queen&apos;s University</b></p>
+        <p style={styles.subtitle}><b>Come explore my portfolio of projects, skills, and experiences.</b></p>
 
         {/* Navigation buttons */}
         <nav style={styles.grid}>
