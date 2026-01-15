@@ -85,24 +85,21 @@ export default function Home() {
             justify-content: center;
             padding: 14px 16px;
             border-radius: 10px;
-            background: #ffffff;
+            background: transparent;
             color: #2563eb;
             border: 1px solid #2563eb;
             text-decoration: none;
             font-weight: 700;
             letter-spacing: 0.02em;
             box-shadow: 0 1px 2px rgba(0,0,0,0.25);
-            transition: transform 120ms ease, background 120ms ease, color 120ms ease;
+            transition: transform 120ms ease;
           }
           .btn:hover {
-            background: #2563eb;
-            color: #ffffff;
-            transform: translateY(-1px);
+            background: transparent;
+            transform: scale(1.05);
           }
           @media (hover: none) {
             .btn:hover {
-              background: #ffffff;
-              color: #2563eb;
               transform: none;
             }
           }

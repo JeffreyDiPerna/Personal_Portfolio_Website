@@ -179,10 +179,7 @@ p {
 }
 
 .btn:hover {
-  transform: translateY(-1px);
-  border-color: var(--primary);
-  background:
-    linear-gradient(180deg, var(--primary-contrast), #ffffff 60%);
+  transform: scale(1.05);
 }
 
 .btn:focus-visible {

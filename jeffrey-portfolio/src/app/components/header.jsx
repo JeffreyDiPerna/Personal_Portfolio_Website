@@ -1,6 +1,8 @@
 
 // src/components/Header.jsx
 
+'use client';
+
 import Link from "next/link";
 
 const styles = {
@@ -44,7 +46,7 @@ const styles = {
     letterSpacing: "0.02em",
     border: "1px solid #c4b5fd", // lavender border
     boxShadow: "0 1px 2px rgba(0,0,0,0.25)",
-    transition: "transform 120ms ease, background 120ms ease, color 120ms ease",
+    transition: "transform 120ms ease",
   },
 };
 
@@ -58,9 +60,20 @@ export default function Header() {
         </Link>
         {/* Primary 'Home' button */}
         <nav aria-label="Primary">
-          <Link href="/" style={styles.homeLink}>Home</Link>
+          <Link href="/" style={styles.homeLink} className="homeBtn">Home</Link>
         </nav>
       </div>
+      
+      <style jsx>{`
+        .homeBtn:hover {
+          transform: scale(1.05) !important;
+        }
+        @media (hover: none) {
+          .homeBtn:hover {
+            transform: none !important;
+          }
+        }
+      `}</style>
     </header>
   );
 }
