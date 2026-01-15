@@ -44,8 +44,8 @@ export default function ProjectsPage() {
             <h2 style={styles.subtitle}>Queen's Hyperloop Design Team Website</h2>
         <p>Jan 2024 – Apr 2024</p>
         <ul>
-          <li>Built secure site with auth, announcements, and profiles for 100+ users.</li>
-          <li>Contributed front‑end UI in HTML/CSS.</li>
+          <li>Collaborated on a secure site with login/logout, announcements, and profiles for 100+ users</li>
+          <li>Contributed to front-end development, creating visual aspects of the site using HTML and CSS</li>
             </ul>
           </section>
         </div>
