@@ -61,7 +61,7 @@ export default function ExperiencesPage() {
       <Header />
       <main style={styles.main}>
         <div style={styles.container}>
-          <h1 style={styles.title}>Professional Experience</h1>
+          <h1 style={styles.title}>Experience</h1>
 
           <div style={styles.timeline}>
             {experiences.map((exp, index) => (
