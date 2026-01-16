@@ -178,7 +178,7 @@ const styles = {
     fontSize: "1.5rem",
     fontWeight: 700,
     marginBottom: "4px",
-    color: "#f8fafc",
+    color: "#94a3b8",
   },
   company: {
     fontSize: "1.1rem",
