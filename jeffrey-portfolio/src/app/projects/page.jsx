@@ -69,7 +69,6 @@ export default function ProjectsPage() {
                 }}
                 className="project-tab"
               >
-                <span style={styles.tabIcon}>{project.icon}</span>
                 <span style={styles.tabText}>{project.title}</span>
               </button>
             ))}
@@ -138,6 +137,7 @@ const styles = {
     fontWeight: 800,
     marginBottom: "48px",
     textAlign: "center",
+    color: "#000000",
     background: "linear-gradient(135deg, #818cf8 0%, #06b6d4 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
@@ -152,7 +152,7 @@ const styles = {
   tabButton: {
     display: "flex",
     alignItems: "center",
-    gap: "12px",
+    justifyContent: "center",
     padding: "16px 20px",
     fontSize: "1rem",
     fontWeight: 600,
@@ -167,19 +167,16 @@ const styles = {
   },
   tabButtonActive: {
     background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
-    color: "#f8fafc",
+    color: "#94a3b8",
     borderColor: "rgba(99, 102, 241, 0.5)",
     boxShadow: "0 8px 20px rgba(99, 102, 241, 0.4)",
   },
   tabButtonInactive: {
-    color: "#cbd5e1",
-  },
-  tabIcon: {
-    fontSize: "1.5rem",
+    color: "#94a3b8",
   },
   tabText: {
-    textAlign: "left",
-    flex: 1,
+    textAlign: "center",
+    width: "100%",
   },
   contentWrapper: {
     minHeight: "400px",
@@ -209,11 +206,11 @@ const styles = {
     fontSize: "1.75rem",
     fontWeight: 700,
     marginBottom: "8px",
-    color: "#f8fafc",
+    color: "#94a3b8",
   },
   date: {
     fontSize: "1rem",
-    color: "#818cf8",
+    color: "#94a3b8",
     fontWeight: 500,
   },
   list: {
@@ -226,7 +223,7 @@ const styles = {
     position: "relative",
     fontSize: "1.05rem",
     lineHeight: "1.7",
-    color: "#cbd5e1",
+    color: "#94a3b8",
     paddingLeft: "28px",
   },
   bullet: {
