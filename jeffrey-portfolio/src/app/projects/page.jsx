@@ -29,7 +29,7 @@ export default function ProjectsPage() {
       ]
     },
     {
-      title: "HOOPP Cards",
+      title: "HOOP Cards",
       date: "Sep 2025 – Dec 2025",
       points: [
         "Built a full-stack fantasy basketball application, keeping interactions under 200ms using C++ and QT",
@@ -118,7 +118,10 @@ const styles = {
     padding: "12px 20px",
     fontSize: "1rem",
     fontWeight: 600,
-    border: "none",
+    borderTop: "none",
+    borderLeft: "none",
+    borderRight: "none",
+    borderBottom: "3px solid transparent",
     cursor: "pointer",
     transition: "all 0.3s ease",
     borderRadius: "8px 8px 0 0",
