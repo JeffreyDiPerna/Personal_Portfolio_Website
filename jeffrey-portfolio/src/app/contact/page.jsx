@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import Header from "../components/header.jsx";
 import PageTransition from "../components/PageTransition";
 
@@ -17,16 +18,18 @@ export default function ContactPage() {
     {
       name: "GitHub",
       href: "https://github.com/JeffreyDiPerna",
-      icon: "💻",
+      icon: "/github.svg",
       color: "#333333",
-      description: "View my code repositories"
+      description: "View my code repositories",
+      isImage: true
     },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/jeffrey-di-perna-39ab101a3/",
-      icon: "💼",
+      icon: "/linkedin.webp",
       color: "#0077B5",
-      description: "Connect professionally"
+      description: "Connect professionally",
+      isImage: true
     },
     {
       name: "Resume",
@@ -59,7 +62,17 @@ export default function ContactPage() {
                 className="contact-card"
               >
                 <div style={styles.iconWrapper}>
-                  <span style={styles.icon}>{link.icon}</span>
+                  {link.isImage ? (
+                    <Image
+                      src={link.icon}
+                      alt={`${link.name} logo`}
+                      width={40}
+                      height={40}
+                      style={styles.iconImage}
+                    />
+                  ) : (
+                    <span style={styles.icon}>{link.icon}</span>
+                  )}
                 </div>
                 <h3 style={styles.cardTitle}>{link.name}</h3>
                 <p style={styles.cardDescription}>{link.description}</p>
@@ -150,6 +163,9 @@ const styles = {
   },
   icon: {
     fontSize: "2.5rem",
+  },
+  iconImage: {
+    objectFit: "contain",
   },
   cardTitle: {
     fontSize: "1.35rem",
