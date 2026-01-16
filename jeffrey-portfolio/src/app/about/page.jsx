@@ -28,25 +28,25 @@ export default function AboutPage() {
               <div style={styles.skillCard} className="skill-card">
                 <div style={styles.skillIcon}>💻</div>
                 <h3 style={styles.skillCategory}>Languages</h3>
-                <p style={styles.skillText}>Python, C/C++, Java, JavaScript, HTML/CSS, Assembly, MATLAB</p>
+                <p style={styles.skillText}>🐍 Python, ⚙️ C/C++, ☕ Java, 🟨 JavaScript, 🌐 HTML/CSS, 🔧 Assembly, 🧮 MATLAB</p>
               </div>
 
               <div style={styles.skillCard} className="skill-card">
                 <div style={styles.skillIcon}>📚</div>
                 <h3 style={styles.skillCategory}>Libraries</h3>
-                <p style={styles.skillText}>NumPy, Pandas, Scikit-learn, TensorFlow, PyTorch, Matplotlib, Hugging Face, Mongoose</p>
+                <p style={styles.skillText}>📊 NumPy, 🐼 Pandas, 🤖 Scikit-learn, 🧠 TensorFlow, 🔥 PyTorch, 📈 Matplotlib, 🤗 Hugging Face, 🍃 Mongoose</p>
               </div>
 
               <div style={styles.skillCard} className="skill-card">
                 <div style={styles.skillIcon}>🔧</div>
                 <h3 style={styles.skillCategory}>Frameworks</h3>
-                <p style={styles.skillText}>React.js, Next.js, Flask, Qt</p>
+                <p style={styles.skillText}>⚛️ React.js, ▶️ Next.js, 🧪 Flask, 🎯 Qt</p>
               </div>
 
               <div style={styles.skillCard} className="skill-card">
                 <div style={styles.skillIcon}>🛠️</div>
                 <h3 style={styles.skillCategory}>Developer Tools</h3>
-                <p style={styles.skillText}>Git, Docker, Linux, MongoDB, REST APIs, SQL, Jupyter</p>
+                <p style={styles.skillText}>📚 Git, 🐳 Docker, 🐧 Linux, 🍂 MongoDB, 🔌 REST APIs, 🗄️ SQL, 📓 Jupyter</p>
               </div>
             </div>
           </section>
