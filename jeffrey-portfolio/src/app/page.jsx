@@ -42,17 +42,19 @@ const styles = {
   },
   subtitle: {
     marginTop: "12px",
-    fontSize: "clamp(1.1rem, 2.5vw, 1.35rem)",
-    color: "#cbd5e1",
-    lineHeight: 1.6,
-    fontWeight: 500,
+    fontSize: "clamp(1.3rem, 3vw, 1.65rem)",
+    color: "#94a3b8",
+    lineHeight: 1.8,
+    fontWeight: 600,
   },
   blurb: {
     marginTop: "16px",
-    fontSize: "1.05rem",
-    color: "#94a3b8",
+    fontSize: "clamp(1.1rem, 2.5vw, 1.3rem)",
+    color: "#cbd5e1",
     maxWidth: "600px",
     margin: "16px auto 0",
+    lineHeight: 1.7,
+    fontWeight: 500,
   },
   grid: {
     display: "grid",
@@ -61,6 +63,31 @@ const styles = {
     marginTop: "48px",
     maxWidth: "700px",
     margin: "48px auto 0",
+  },
+  navBtn: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "8px",
+    padding: "16px 12px",
+    borderRadius: "20px",
+    background: "linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%)",
+    backdropFilter: "blur(10px)",
+    border: "3px solid #818cf8",
+    outline: "2px solid #06b6d4",
+    outlineOffset: "1px",
+    color: "#f0f4f8",
+    textDecoration: "none",
+    fontWeight: 800,
+    fontSize: "0.95rem",
+    letterSpacing: "0.05em",
+    textShadow: "0 2px 4px rgba(0, 0, 0, 0.6)",
+    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 20px rgba(99, 102, 241, 0.5)",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    position: "relative",
+    cursor: "pointer",
+    boxSizing: "border-box",
   },
 };
 
@@ -78,25 +105,25 @@ export default function Home() {
           <p style={styles.subtitle}>
             <b>Computer Engineering Student @ Queen&apos;s University</b>
           </p>
-          <p style={styles.blurb}>
+          <p style={styles.subtitle}>
             <b>Explore my portfolio of projects, skills, and experiences in AI, full-stack development, and engineering.</b>
           </p>
 
           {/* Navigation buttons */}
           <nav style={styles.grid}>
-            <Link href="/about" className="nav-btn">
+            <Link href="/about" style={styles.navBtn}>
               <span className="nav-icon">👤</span>
               <span>About</span>
             </Link>
-            <Link href="/projects" className="nav-btn">
+            <Link href="/projects" style={styles.navBtn}>
               <span className="nav-icon">🚀</span>
               <span>Projects</span>
             </Link>
-            <Link href="/experiences" className="nav-btn">
+            <Link href="/experiences" style={styles.navBtn}>
               <span className="nav-icon">💼</span>
               <span>Experiences</span>
             </Link>
-            <Link href="/contact" className="nav-btn">
+            <Link href="/contact" style={styles.navBtn}>
               <span className="nav-icon">📧</span>
               <span>Contact</span>
             </Link>
@@ -120,7 +147,9 @@ export default function Home() {
               background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
               backdrop-filter: blur(10px);
               -webkit-backdrop-filter: blur(10px);
-              border: 3px solid #6366f1;
+              border: 5px solid #ff0000;
+              outline: 3px solid #ffff00;
+              outline-offset: 2px;
               color: #f8fafc;
               text-decoration: none;
               font-weight: 700;
@@ -131,56 +160,34 @@ export default function Home() {
                           0 0 20px rgba(99, 102, 241, 0.5);
               transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
               position: relative;
-              overflow: hidden;
               cursor: pointer;
+              box-sizing: border-box;
             }
 
             .nav-btn::before {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: -100%;
-              width: 100%;
-              height: 100%;
-              background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
-              transition: left 0.5s ease;
-            }
-
-            .nav-btn::after {
-              content: '';
-              position: absolute;
-              inset: 0;
-              border-radius: 20px;
-              padding: 2px;
-              background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(139, 92, 246, 0.5));
-              -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-              -webkit-mask-composite: xor;
-              mask-composite: exclude;
-              opacity: 0;
-              transition: opacity 0.3s ease;
+              display: none;
             }
 
             .nav-btn:hover::before {
-              left: 100%;
-            }
-
-            .nav-btn:hover::after {
-              opacity: 1;
+              display: none;
             }
 
             .nav-btn:hover {
-              transform: translateY(-6px) scale(1.02);
-              box-shadow: 0 20px 50px rgba(99, 102, 241, 0.5), 
-                          0 0 40px rgba(99, 102, 241, 0.6),
-                          inset 0 1px 0 rgba(255, 255, 255, 0.2);
-              border-color: #818cf8;
-              background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
+              transform: scale(1.5) translateY(-20px) !important;
+              box-shadow: 0 40px 80px rgba(99, 102, 241, 0.8), 
+                          0 0 0 8px rgba(99, 102, 241, 1),
+                          0 0 30px rgba(139, 92, 246, 1),
+                          inset 0 2px 4px rgba(255, 255, 255, 0.5);
+              border: 5px solid #818cf8 !important;
+              border-color: #818cf8 !important;
+              background: linear-gradient(135deg, rgba(99, 102, 241, 0.5) 0%, rgba(139, 92, 246, 0.5) 100%) !important;
             }
 
             .nav-btn:active {
-              transform: translateY(-2px) scale(0.98);
-              box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4), 
-                          inset 0 2px 4px rgba(0, 0, 0, 0.3);
+              transform: translateY(-2px) scale(1.02);
+              box-shadow: 0 15px 35px rgba(99, 102, 241, 0.5), 
+                          0 0 30px rgba(99, 102, 241, 0.6),
+                          inset 0 2px 6px rgba(0, 0, 0, 0.3);
             }
 
             .nav-icon {
