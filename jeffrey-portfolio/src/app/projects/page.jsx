@@ -69,6 +69,7 @@ export default function ProjectsPage() {
                 }}
                 className="project-tab"
               >
+                <span style={styles.tabIcon}>{project.icon}</span>
                 <span style={styles.tabText}>{project.title}</span>
               </button>
             ))}
@@ -152,7 +153,7 @@ const styles = {
   tabButton: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    gap: "12px",
     padding: "16px 20px",
     fontSize: "1rem",
     fontWeight: 600,
@@ -174,9 +175,12 @@ const styles = {
   tabButtonInactive: {
     color: "#94a3b8",
   },
+  tabIcon: {
+    fontSize: "1.5rem",
+  },
   tabText: {
-    textAlign: "center",
-    width: "100%",
+    textAlign: "left",
+    flex: 1,
   },
   contentWrapper: {
     minHeight: "400px",
