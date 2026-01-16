@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import Header from "../components/header.jsx";
 import PageTransition from "../components/PageTransition";
 
@@ -11,7 +12,7 @@ export default function ExperiencesPage() {
       company: "QMIND",
       date: "Sep 2024 – Present",
       location: "Kingston, ON",
-      icon: "🧠",
+      icon: "/qmind.ico",
       points: [
         "Building RAG-driven instruction generation; piloted with 50+ patients in clinical use.",
         "Enabled clinician self-serve uploads and QR code delivery for scalable access.",
@@ -23,7 +24,7 @@ export default function ExperiencesPage() {
       company: "Engineering Society",
       date: "Sept 2025 – Present",
       location: "Kingston, ON",
-      icon: "💻",
+      icon: "/ENGSOC.webp",
       points: [
         "Service to analyze resume structure/keywords, improving callback rates in testing.",
         "Applied NLP to enhance ATS effectiveness.",
@@ -35,7 +36,7 @@ export default function ExperiencesPage() {
       company: "QMIND",
       date: "June 2025 – Present",
       location: "Kingston, ON",
-      icon: "🤝",
+      icon: "/qmind.ico",
       points: [
         "Expanded QMIND's external network by 25%.",
         "Built relationships with alumni, mentors, and industry stakeholders."
@@ -46,7 +47,7 @@ export default function ExperiencesPage() {
       company: "Trillium Health Partners",
       date: "Jun 2025 – Aug 2025",
       location: "Mississauga, ON",
-      icon: "🖥️",
+      icon: "/THP.jpeg",
       points: [
         "Built virtual data center models in Sunbird DCIM to monitor 20+ server racks in real time across multiple locations",
         "Executed hardware install/upgrade/decommission cycles to scale data centers for patient medical record storage",
@@ -66,7 +67,13 @@ export default function ExperiencesPage() {
             {experiences.map((exp, index) => (
               <div key={index} style={styles.experienceCard} className="experience-card">
                 <div style={styles.iconWrapper}>
-                  <span style={styles.icon}>{exp.icon}</span>
+                  <Image
+                    src={exp.icon}
+                    alt={`${exp.company} logo`}
+                    width={48}
+                    height={48}
+                    style={styles.iconImage}
+                  />
                 </div>
                 <div style={styles.content}>
                   <div style={styles.header}>
@@ -158,8 +165,8 @@ const styles = {
     borderRadius: "12px",
     border: "1px solid rgba(99, 102, 241, 0.3)",
   },
-  icon: {
-    fontSize: "2rem",
+  iconImage: {
+    objectFit: "contain",
   },
   content: {
     flex: 1,
