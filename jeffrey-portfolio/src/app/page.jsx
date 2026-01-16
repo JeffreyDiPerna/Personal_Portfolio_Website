@@ -56,10 +56,10 @@ const styles = {
   },
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-    gap: "16px",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "24px",
     marginTop: "48px",
-    maxWidth: "800px",
+    maxWidth: "700px",
     margin: "48px auto 0",
   },
 };
@@ -114,22 +114,25 @@ export default function Home() {
               flex-direction: column;
               align-items: center;
               justify-content: center;
-              gap: 12px;
-              padding: 32px 24px;
-              border-radius: 16px;
-              background: rgba(255, 255, 255, 0.05);
+              gap: 16px;
+              padding: 48px 32px;
+              border-radius: 20px;
+              background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
               backdrop-filter: blur(10px);
               -webkit-backdrop-filter: blur(10px);
-              border: 1px solid rgba(255, 255, 255, 0.1);
-              color: #cbd5e1;
+              border: 3px solid #6366f1;
+              color: #f8fafc;
               text-decoration: none;
-              font-weight: 600;
-              font-size: 1.1rem;
+              font-weight: 700;
+              font-size: 1.25rem;
               letter-spacing: 0.025em;
-              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 
+                          inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                          0 0 20px rgba(99, 102, 241, 0.5);
               transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
               position: relative;
               overflow: hidden;
+              cursor: pointer;
             }
 
             .nav-btn::before {
@@ -139,24 +142,50 @@ export default function Home() {
               left: -100%;
               width: 100%;
               height: 100%;
-              background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.2), transparent);
+              background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
               transition: left 0.5s ease;
+            }
+
+            .nav-btn::after {
+              content: '';
+              position: absolute;
+              inset: 0;
+              border-radius: 20px;
+              padding: 2px;
+              background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(139, 92, 246, 0.5));
+              -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              -webkit-mask-composite: xor;
+              mask-composite: exclude;
+              opacity: 0;
+              transition: opacity 0.3s ease;
             }
 
             .nav-btn:hover::before {
               left: 100%;
             }
 
+            .nav-btn:hover::after {
+              opacity: 1;
+            }
+
             .nav-btn:hover {
-              transform: translateY(-8px);
-              box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4), 0 0 30px rgba(99, 102, 241, 0.3);
-              border-color: rgba(99, 102, 241, 0.5);
-              background: rgba(99, 102, 241, 0.1);
-              color: #f8fafc;
+              transform: translateY(-6px) scale(1.02);
+              box-shadow: 0 20px 50px rgba(99, 102, 241, 0.5), 
+                          0 0 40px rgba(99, 102, 241, 0.6),
+                          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+              border-color: #818cf8;
+              background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
+            }
+
+            .nav-btn:active {
+              transform: translateY(-2px) scale(0.98);
+              box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4), 
+                          inset 0 2px 4px rgba(0, 0, 0, 0.3);
             }
 
             .nav-icon {
-              font-size: 2rem;
+              font-size: 3rem;
+              filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
             }
 
             @media (hover: none) {
