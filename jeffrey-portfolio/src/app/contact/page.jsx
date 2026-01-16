@@ -111,7 +111,7 @@ const styles = {
   },
   subtitle: {
     fontSize: "1.15rem",
-    color: "#cbd5e1",
+    color: "#94a3b8",
     textAlign: "center",
     maxWidth: "700px",
     margin: "0 auto 64px",
