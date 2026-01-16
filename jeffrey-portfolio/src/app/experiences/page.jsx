@@ -205,7 +205,7 @@ const styles = {
     position: "relative",
     fontSize: "1rem",
     lineHeight: "1.7",
-    color: "#cbd5e1",
+    color: "#94a3b8",
     paddingLeft: "28px",
   },
   bullet: {

@@ -96,7 +96,7 @@ const styles = {
   text: {
     fontSize: "1.2rem",
     lineHeight: 1.8,
-    color: "#cbd5e1",
+    color: "#94a3b8",
     maxWidth: "800px",
     margin: "0 auto",
   },
