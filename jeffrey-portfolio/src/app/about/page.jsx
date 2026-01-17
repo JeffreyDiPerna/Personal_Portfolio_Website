@@ -108,7 +108,10 @@ const styles = {
     fontWeight: 700,
     marginBottom: "32px",
     textAlign: "center",
-    color: "#f8fafc",
+    background: "linear-gradient(135deg, #818cf8 0%, #06b6d4 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
   },
   skillsGrid: {
     display: "grid",
