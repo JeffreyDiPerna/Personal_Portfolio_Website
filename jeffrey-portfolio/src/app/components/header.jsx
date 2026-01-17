@@ -59,7 +59,7 @@ export default function Header() {
       <div style={styles.wrapper}>
         {/* Site label */}
         <Link href="/" style={styles.brand} aria-label="Home" className="brand-link">
-          <span>✨ Jeffrey Di Perna</span>
+          <span>✨ Jeffrey Di Perna Portfolio</span>
         </Link>
         {/* Primary 'Home' button */}
         <nav aria-label="Primary">
@@ -75,7 +75,7 @@ export default function Header() {
         }
 
         .homeBtn:hover {
-          transform: translateY(-2px);
+          transform: translateY(-2px) scale(1.05);
           box-shadow: 0 8px 20px rgba(99, 102, 241, 0.5), 0 0 30px rgba(99, 102, 241, 0.3);
         }
 
