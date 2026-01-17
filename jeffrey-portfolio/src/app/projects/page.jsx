@@ -1,14 +1,29 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from "../components/header.jsx";
 import PageTransition from "../components/PageTransition";
 
 // src/app/projects/page.js
 export default function ProjectsPage() {
   const [activeTab, setActiveTab] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const projects = [
+    {
+      title: "RAG Agent",
+      icon: "🔍",
+      githubLink: "https://github.com/JeffreyDiPerna/RAG_Agent",
+      points: [
+        "Created RAG agent to answer questions about submitted documents using Python, Docker and REST API's",
+        "Developed a chunking and overlap strategy to increase context hit rate, using load_and_chunk_pdf (tunable sizes + overlap); raised hit@k by +18pp and reduced average tokens retrieved by ~22%.",
+        "Implemented scheduled refresh jobs to keep embeddings current, using Inngest recurring events with datetime windows; maintained <24h staleness on document updates with 0 missed refreshes over 4 weeks.",
+      ]
+    },
     {
       title: "AI‑Powered American Sign Language Recognition",
       date: "Sep 2024 – Mar 2025",
@@ -80,44 +95,46 @@ export default function ProjectsPage() {
 
           {/* Tab Content */}
           <div style={styles.contentWrapper}>
-            <section style={styles.section} className="project-content">
-              <div style={styles.projectHeader}>
-                <span style={styles.projectIcon}>{projects[activeTab].icon}</span>
-                <div style={{ flex: 1 }}>
-                  <h2 style={styles.subtitle}>{projects[activeTab].title}</h2>
-                  <p style={styles.date}>{projects[activeTab].date}</p>
-                </div>
-                {projects[activeTab].githubLink && (
-                  <a 
-                    href={projects[activeTab].githubLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    style={styles.githubLink}
-                    className="github-link"
-                    aria-label="View on GitHub"
-                  >
-                    <span style={styles.githubText}>See the full project here</span>
-                    <svg 
-                      height="32" 
-                      width="32" 
-                      viewBox="0 0 16 16" 
-                      fill="currentColor"
-                      style={styles.githubIcon}
+            {mounted && (
+              <section style={styles.section} className="project-content">
+                <div style={styles.projectHeader}>
+                  <span style={styles.projectIcon}>{projects[activeTab].icon}</span>
+                  <div style={{ flex: 1 }}>
+                    <h2 style={styles.subtitle}>{projects[activeTab].title}</h2>
+                    <p style={styles.date}>{projects[activeTab].date}</p>
+                  </div>
+                  {projects[activeTab].githubLink && (
+                    <a 
+                      href={projects[activeTab].githubLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={styles.githubLink}
+                      className="github-link"
+                      aria-label="View on GitHub"
                     >
-                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-                    </svg>
-                  </a>
-                )}
-              </div>
-              <ul style={styles.list}>
-                {projects[activeTab].points.map((point, index) => (
-                  <li key={index} style={styles.listItem}>
-                    <span style={styles.bullet}>▹</span>
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </section>
+                      <span style={styles.githubText}>See the full project here</span>
+                      <svg 
+                        height="32" 
+                        width="32" 
+                        viewBox="0 0 16 16" 
+                        fill="currentColor"
+                        style={styles.githubIcon}
+                      >
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                      </svg>
+                    </a>
+                  )}
+                </div>
+                <ul style={styles.list}>
+                  {projects[activeTab].points.map((point, index) => (
+                    <li key={index} style={styles.listItem}>
+                      <span style={styles.bullet}>▹</span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
           </div>
         </div>
 
