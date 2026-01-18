@@ -17,7 +17,8 @@ const pageTransition = {
 export default function PageTransition({ children }) {
   return (
     <motion.div
-      initial="hidden"
+      // Disable initial variant on first paint to keep server/client markup in sync during hydration
+      initial={false}
       animate="enter"
       exit="exit"
       variants={pageVariants}
