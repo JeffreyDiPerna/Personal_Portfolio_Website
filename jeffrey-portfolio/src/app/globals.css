@@ -7,31 +7,31 @@
    Theme tokens
 ---------------------------------*/
 :root {
-  /* Base colors - Dark premium theme */
-  --bg-primary: #0a0e27;
-  --bg-secondary: #111827;
-  --bg-gradient-start: #0f172a;
-  --bg-gradient-end: #1e1b4b;
+  /* Base colors - Modern light theme */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-gradient-start: #eff6ff;
+  --bg-gradient-end: #f0f9ff;
   
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
   
-  --border-primary: rgba(148, 163, 184, 0.1);
-  --border-accent: rgba(99, 102, 241, 0.3);
+  --border-primary: rgba(30, 41, 59, 0.1);
+  --border-accent: rgba(3, 105, 161, 0.2);
 
-  /* Premium accents */
-  --primary: #6366f1;        /* indigo */
-  --primary-light: #818cf8;
-  --primary-dark: #4f46e5;
-  --secondary: #8b5cf6;      /* purple */
-  --accent: #06b6d4;         /* cyan */
+  /* Modern cool accents */
+  --primary: #0369a1;        /* professional blue */
+  --primary-light: #0ea5e9;  /* sky blue */
+  --primary-dark: #075985;
+  --secondary: #06b6d4;      /* cyan */
+  --accent: #0891b2;         /* teal */
   --accent-warm: #f59e0b;    /* amber */
 
-  /* Glass morphism */
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  /* Glass morphism - light theme */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(30, 41, 59, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(30, 41, 59, 0.1);
 
   /* Layout scale */
   --max-w: 75rem;
@@ -76,12 +76,12 @@ html, body {
 body {
   margin: 0;
   background: var(--bg-primary);
-  /* Premium gradient background */
+  /* Modern light gradient background */
   background-image: 
-    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(99, 102, 241, 0.1) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(3, 105, 161, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.06) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(3, 105, 161, 0.06) 0px, transparent 50%);
   background-attachment: fixed;
   color: var(--text-primary);
   font-family:
@@ -120,7 +120,7 @@ a:hover {
 /* Text selection - premium accent */
 ::selection {
   background: var(--primary);
-  color: var(--text-primary);
+  color: #ffffff;
 }
 
 /* --------------------------------

@@ -3,94 +3,180 @@
 
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from "next/link";
+import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
-const styles = {
-  header: {
-    position: "sticky",
-    top: 0,
-    zIndex: 50,
-    width: "100%",
-    background: "rgba(10, 14, 39, 0.8)",
-    backdropFilter: "blur(12px)",
-    WebkitBackdropFilter: "blur(12px)",
-    borderBottom: "1px solid rgba(99, 102, 241, 0.2)",
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-  },
-  wrapper: {
-    maxWidth: "1200px",
-    margin: "0 auto",
-    padding: "16px 24px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  brand: {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 12,
-    color: "#f8fafc",
-    textDecoration: "none",
-    fontWeight: 700,
-    letterSpacing: "0.025em",
-    fontSize: "1.15rem",
-    transition: "color 0.2s ease",
-  },
-  homeLink: {
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "10px 24px",
-    borderRadius: "10px",
-    background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
-    color: "#f8fafc",
-    textDecoration: "none",
-    fontWeight: 600,
-    letterSpacing: "0.025em",
-    border: "1px solid rgba(99, 102, 241, 0.3)",
-    boxShadow: "0 4px 12px rgba(99, 102, 241, 0.3)",
-    transition: "all 0.3s ease",
-  },
-};
+const Header = () => {
+  const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-export default function Header() {
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navItems = [
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
+    { label: 'Projects', href: '/projects' },
+    { label: 'Experience', href: '/experiences' },
+    { label: 'Contact', href: '/contact' },
+  ];
+
+  const isActive = (href) => pathname === href;
+
   return (
-    <header style={styles.header}>
-      <div style={styles.wrapper}>
-        {/* Site label */}
-        <Link href="/" style={styles.brand} aria-label="Home" className="brand-link">
-          <span>✨ Jeffrey Di Perna Portfolio</span>
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+        width: "100%",
+        background: isScrolled 
+          ? "rgba(255, 255, 255, 0.95)" 
+          : "rgba(255, 255, 255, 0.8)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        borderBottom: isScrolled 
+          ? "1px solid rgba(30, 41, 59, 0.15)" 
+          : "1px solid transparent",
+        boxShadow: isScrolled 
+          ? "0 10px 30px rgba(30, 41, 59, 0.1)" 
+          : "none",
+        transition: "all 0.3s ease",
+      }}
+    >
+      <div style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "16px 24px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}>
+        {/* Brand */}
+        <Link 
+          href="/" 
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            color: "#0369a1",
+            textDecoration: "none",
+            fontWeight: 700,
+            fontSize: "1.2rem",
+            letterSpacing: "-0.02em",
+            transition: "all 0.3s ease",
+          }}
+          className="brand-link"
+        >
+          <span style={{ fontSize: "1.5rem" }}>◆</span>
+          <span>Jeffrey</span>
         </Link>
-        {/* Primary 'Home' button */}
-        <nav aria-label="Primary">
-          <Link href="/" style={styles.homeLink} className="homeBtn">
-            Home
-          </Link>
+
+        {/* Desktop Navigation */}
+        <nav 
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "32px",
+          }}
+          className="desktop-nav"
+        >
+          {navItems.map((item) => (
+            <motion.div
+              key={item.href}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href={item.href}
+                style={{
+                  color: isActive(item.href) ? "#0369a1" : "#64748b",
+                  textDecoration: "none",
+                  fontWeight: 600,
+                  fontSize: "0.95rem",
+                  position: "relative",
+                  transition: "color 0.3s ease",
+                  paddingBottom: "4px",
+                  borderBottom: isActive(item.href) 
+                    ? "2px solid #0369a1" 
+                    : "2px solid transparent",
+                  display: "inline-block",
+                }}
+                className={`nav-link ${isActive(item.href) ? 'active' : ''}`}
+              >
+                {item.label}
+              </Link>
+            </motion.div>
+          ))}
         </nav>
+
+        {/* Resume CTA */}
+        <motion.a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          style={{
+            padding: "10px 24px",
+            borderRadius: "8px",
+            background: "linear-gradient(135deg, #0369a1 0%, #06b6d4 100%)",
+            color: "#ffffff",
+            textDecoration: "none",
+            fontWeight: 600,
+            fontSize: "0.9rem",
+            border: "1px solid rgba(3, 105, 161, 0.3)",
+            boxShadow: "0 4px 15px rgba(3, 105, 161, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
+            transition: "all 0.3s ease",
+            cursor: "pointer",
+          }}
+          className="resume-btn"
+        >
+          Resume
+        </motion.a>
       </div>
-      
+
       <style jsx>{`
-        .brand-link:hover {
-          color: #818cf8 !important;
+        .nav-link {
+          background: linear-gradient(to right, #0369a1 0%, #06b6d4 100%);
+          background-size: 200% 2px;
+          background-position: 200% 100%;
+          background-repeat: no-repeat;
+          transition: all 0.3s ease;
         }
 
-        .homeBtn:hover {
-          transform: translateY(-2px) scale(1.05);
-          box-shadow: 0 8px 20px rgba(99, 102, 241, 0.5), 0 0 30px rgba(99, 102, 241, 0.3);
+        .nav-link:hover:not(.active) {
+          background-position: 0% 100%;
         }
 
-        @media (hover: none) {
-          .homeBtn:hover {
-            transform: none;
+        .resume-btn:hover {
+          box-shadow: 0 8px 25px rgba(3, 105, 161, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+          .desktop-nav {
+            display: none;
           }
-        }
 
-        @media (max-width: 640px) {
-          .brand-link span {
-            font-size: 0.95rem;
+          .resume-btn {
+            display: none;
           }
         }
       `}</style>
-    </header>
+    </motion.header>
   );
-}
+};
+
+export default Header;

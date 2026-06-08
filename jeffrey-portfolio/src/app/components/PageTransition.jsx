@@ -1,28 +1,41 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const pageVariants = {
-  hidden: { opacity: 0, y: 20 },
-  enter: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -20 }
-};
-
-const pageTransition = {
-  type: "tween",
-  ease: "easeInOut",
-  duration: 0.3
+  hidden: { 
+    opacity: 0, 
+    y: 20,
+    filter: "blur(10px)"
+  },
+  enter: { 
+    opacity: 1, 
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.4,
+      ease: "easeOut"
+    }
+  },
+  exit: { 
+    opacity: 0, 
+    y: -20,
+    filter: "blur(10px)",
+    transition: {
+      duration: 0.3,
+      ease: "easeIn"
+    }
+  }
 };
 
 export default function PageTransition({ children }) {
   return (
     <motion.div
-      // Disable initial variant on first paint to keep server/client markup in sync during hydration
-      initial={false}
+      initial="hidden"
       animate="enter"
       exit="exit"
       variants={pageVariants}
-      transition={pageTransition}
+      style={{ width: "100%" }}
     >
       {children}
     </motion.div>

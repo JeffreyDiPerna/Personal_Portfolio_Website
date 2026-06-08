@@ -2,209 +2,326 @@
 // src/app/page.jsx
 'use client';
 
+import { useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from 'framer-motion';
 import PageTransition from "./components/PageTransition";
 
-const styles = {
-  main: {
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "24px",
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
   },
-  container: {
-    width: "100%",
-    maxWidth: "1000px",
-    textAlign: "center",
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
   },
-  imageWrapper: {
-    position: "relative",
-    margin: "0 auto 32px",
-    width: "min(280px, 40vw)",
-    aspectRatio: "1 / 1",
-    borderRadius: "50%",
-    overflow: "hidden",
-    boxShadow: "0 20px 60px rgba(99, 102, 241, 0.4), 0 0 40px rgba(139, 92, 246, 0.3)",
-    border: "4px solid rgba(99, 102, 241, 0.3)",
-    transition: "all 0.4s ease",
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
   },
-  title: {
-    margin: "0 0 12px 0",
-    fontSize: "clamp(2.5rem, 6vw, 4rem)",
-    fontWeight: 800,
-    letterSpacing: "-0.02em",
-    background: "linear-gradient(135deg, #818cf8 0%, #06b6d4 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
+  hover: {
+    scale: 1.08,
+    rotate: 2,
+    transition: { duration: 0.3 },
   },
-  subtitle: {
-    marginTop: "12px",
-    fontSize: "clamp(1.3rem, 3vw, 1.65rem)",
-    color: "#94a3b8",
-    lineHeight: 1.8,
-    fontWeight: 600,
+};
+
+const buttonVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.4 + i * 0.1,
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+  hover: {
+    y: -8,
+    boxShadow: "0 12px 40px rgba(3, 105, 161, 0.3)",
+    transition: { duration: 0.3 },
   },
-  blurb: {
-    marginTop: "16px",
-    fontSize: "clamp(1.1rem, 2.5vw, 1.3rem)",
-    color: "#cbd5e1",
-    maxWidth: "600px",
-    margin: "16px auto 0",
-    lineHeight: 1.7,
-    fontWeight: 500,
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
-    gap: "24px",
-    marginTop: "48px",
-    maxWidth: "700px",
-    margin: "48px auto 0",
-  },
-  navBtn: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "8px",
-    padding: "16px 12px",
-    borderRadius: "20px",
-    background: "linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%)",
-    backdropFilter: "blur(10px)",
-    border: "3px solid #818cf8",
-    outline: "2px solid #06b6d4",
-    outlineOffset: "1px",
-    color: "#f0f4f8",
-    textDecoration: "none",
-    fontWeight: 800,
-    fontSize: "0.95rem",
-    letterSpacing: "0.05em",
-    textShadow: "0 2px 4px rgba(0, 0, 0, 0.6)",
-    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 20px rgba(99, 102, 241, 0.5)",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-    position: "relative",
-    cursor: "pointer",
-    boxSizing: "border-box",
+  tap: {
+    scale: 0.95,
   },
 };
 
 export default function Home() {
+  const navButtons = [
+    { href: "/about", icon: "👤", label: "About", color: '#0369a1' },
+    { href: "/projects", icon: "🚀", label: "Projects", color: '#06b6d4' },
+    { href: "/experiences", icon: "💼", label: "Experience", color: '#0891b2' },
+    { href: "/contact", icon: "📧", label: "Contact", color: '#0ea5e9' },
+  ];
+
   return (
     <PageTransition>
-      <main style={styles.main}>
-        <section style={styles.container}>
-          {/* Profile image with premium styling */}
-          <div style={styles.imageWrapper} className="profile-image">
-            <Image src="/Headshot.png" alt="Jeffrey Di Perna" width={300} height={250} />
-          </div>
+      <main style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "60px 24px",
+        position: "relative",
+        overflow: "hidden",
+      }}>
+        {/* Background decorative elements */}
+        <div style={{
+          position: "absolute",
+          top: "-500px",
+          right: "-500px",
+          width: "1000px",
+          height: "1000px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(3, 105, 161, 0.08) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
+        <div style={{
+          position: "absolute",
+          bottom: "-300px",
+          left: "-300px",
+          width: "600px",
+          height: "600px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
 
-          <h1 style={styles.title}>Jeffrey Di Perna</h1>
-          <p style={styles.subtitle}>
-            <b>Computer Engineering Student @ Queen&apos;s University</b>
-          </p>
-          <p style={styles.subtitle}>
-            <b>Explore my portfolio of projects, skills, and experiences in AI, full-stack development, and engineering.</b>
-          </p>
+        <motion.section
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          style={{
+            width: "100%",
+            maxWidth: "900px",
+            textAlign: "center",
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          {/* Profile Image */}
+          <motion.div
+            variants={imageVariants}
+            whileHover="hover"
+            style={{
+              position: "relative",
+              marginBottom: "48px",
+              width: "140px",
+              height: "140px",
+              borderRadius: "50%",
+              overflow: "hidden",
+              margin: "0 auto 48px",
+              boxShadow: "0 20px 50px rgba(3, 105, 161, 0.2)",
+              border: "3px solid #e2e8f0",
+              background: "linear-gradient(135deg, #f0f9ff 0%, #eff6ff 100%)",
+            }}
+            className="profile-image"
+          >
+            <Image 
+              src="/Headshot.png" 
+              alt="Jeffrey Di Perna" 
+              width={140}
+              height={140}
+              style={{ width: "100%", height: "100%" }}
+            />
+          </motion.div>
 
-          {/* Navigation buttons */}
-          <nav style={styles.grid}>
-            <Link href="/about" style={styles.navBtn}>
-              <span className="nav-icon">👤</span>
-              <span>About</span>
-            </Link>
-            <Link href="/projects" style={styles.navBtn}>
-              <span className="nav-icon">🚀</span>
-              <span>Projects</span>
-            </Link>
-            <Link href="/experiences" style={styles.navBtn}>
-              <span className="nav-icon">💼</span>
-              <span>Experiences</span>
-            </Link>
-            <Link href="/contact" style={styles.navBtn}>
-              <span className="nav-icon">📧</span>
-              <span>Contact</span>
-            </Link>
-          </nav>
+          {/* Main Title */}
+          <motion.h1
+            variants={itemVariants}
+            style={{
+              margin: 0,
+              fontSize: "clamp(2.5rem, 6vw, 4rem)",
+              fontWeight: 800,
+              letterSpacing: "-0.02em",
+              background: "linear-gradient(135deg, #0369a1 0%, #06b6d4 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              marginBottom: "8px",
+            }}
+          >
+            Jeffrey Di Perna
+          </motion.h1>
 
-          {/* Styled-jsx for component-specific styles */}
-          <style jsx>{`
-            .profile-image:hover {
-              transform: scale(1.05);
-              box-shadow: 0 25px 70px rgba(99, 102, 241, 0.5), 0 0 50px rgba(139, 92, 246, 0.4);
-            }
+          {/* Subtitle */}
+          <motion.p
+            variants={itemVariants}
+            style={{
+              margin: "0 0 12px 0",
+              fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
+              fontWeight: 700,
+              color: "#0f172a",
+            }}
+          >
+            Computer Engineering Student @ Queen&apos;s University
+          </motion.p>
 
-            .nav-btn {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              gap: 16px;
-              padding: 48px 32px;
-              border-radius: 20px;
-              background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
-              backdrop-filter: blur(10px);
-              -webkit-backdrop-filter: blur(10px);
-              border: 5px solid #ff0000;
-              outline: 3px solid #ffff00;
-              outline-offset: 2px;
-              color: #f8fafc;
-              text-decoration: none;
-              font-weight: 700;
-              font-size: 1.25rem;
-              letter-spacing: 0.025em;
-              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 
-                          inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                          0 0 20px rgba(99, 102, 241, 0.5);
-              transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-              position: relative;
-              cursor: pointer;
-              box-sizing: border-box;
-            }
+          {/* Description */}
+          <motion.p
+            variants={itemVariants}
+            style={{
+              margin: "0 0 48px 0",
+              fontSize: "1.1rem",
+              color: "#475569",
+              maxWidth: "650px",
+              lineHeight: 1.8,
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            Building innovative AI-driven solutions and full-stack applications. 
+            Passionate about machine learning, financial technology, and creating impactful software.
+          </motion.p>
 
-            .nav-btn::before {
-              display: none;
-            }
+          {/* Navigation Grid */}
+          <motion.nav
+            variants={containerVariants}
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+              gap: "20px",
+              marginTop: "48px",
+              maxWidth: "700px",
+              margin: "48px auto 0",
+            }}
+          >
+            {navButtons.map((btn, i) => (
+              <motion.div
+                key={btn.href}
+                custom={i}
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+              >
+                <Link
+                  href={btn.href}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "12px",
+                    padding: "32px 20px",
+                    borderRadius: "16px",
+                    background: "linear-gradient(135deg, rgba(3, 105, 161, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%)",
+                    border: "2px solid #e2e8f0",
+                    color: "#0f172a",
+                    textDecoration: "none",
+                    fontWeight: 700,
+                    fontSize: "1rem",
+                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                    cursor: "pointer",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                  className={`nav-btn nav-btn-${i}`}
+                >
+                  <span style={{ fontSize: "2.5rem" }}>{btn.icon}</span>
+                  <span>{btn.label}</span>
 
-            .nav-btn:hover::before {
-              display: none;
-            }
+                  <style jsx>{`
+                    .nav-btn-${i} {
+                      background: linear-gradient(135deg, rgba(3, 105, 161, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+                    }
 
-            .nav-btn:hover {
-              transform: scale(1.5) translateY(-20px) !important;
-              box-shadow: 0 40px 80px rgba(99, 102, 241, 0.8), 
-                          0 0 0 8px rgba(99, 102, 241, 1),
-                          0 0 30px rgba(139, 92, 246, 1),
-                          inset 0 2px 4px rgba(255, 255, 255, 0.5);
-              border: 5px solid #818cf8 !important;
-              border-color: #818cf8 !important;
-              background: linear-gradient(135deg, rgba(99, 102, 241, 0.5) 0%, rgba(139, 92, 246, 0.5) 100%) !important;
-            }
+                    .nav-btn-${i}:hover {
+                      border-color: ${btn.color};
+                      background: linear-gradient(135deg, rgba(3, 105, 161, 0.12) 0%, rgba(6, 182, 212, 0.12) 100%);
+                      box-shadow: 0 12px 40px rgba(3, 105, 161, 0.2);
+                    }
+                  `}</style>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.nav>
 
-            .nav-btn:active {
-              transform: translateY(-2px) scale(1.02);
-              box-shadow: 0 15px 35px rgba(99, 102, 241, 0.5), 
-                          0 0 30px rgba(99, 102, 241, 0.6),
-                          inset 0 2px 6px rgba(0, 0, 0, 0.3);
-            }
-
-            .nav-icon {
-              font-size: 3rem;
-              filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-            }
-
-            @media (hover: none) {
-              .nav-btn:hover {
-                transform: none;
-              }
-              .profile-image:hover {
-                transform: none;
-              }
-            }
-          `}</style>
-        </section>
+          {/* CTA Section */}
+          <motion.div
+            variants={itemVariants}
+            style={{
+              marginTop: "64px",
+              paddingTop: "48px",
+              borderTop: "1px solid #e2e8f0",
+            }}
+          >
+            <p style={{
+              color: "#64748b",
+              fontSize: "0.95rem",
+              margin: "0 0 16px 0",
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+              fontWeight: 600,
+            }}>
+              Let&apos;s connect
+            </p>
+            <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+              <motion.a
+                href="https://github.com/JeffreyDiPerna"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "50%",
+                  background: "#f0f4f8",
+                  color: "#0369a1",
+                  border: "2px solid #e2e8f0",
+                  textDecoration: "none",
+                  transition: "all 0.3s ease",
+                  fontSize: "1.2rem",
+                }}
+              >
+                🔗
+              </motion.a>
+              <motion.a
+                href="https://www.linkedin.com/in/jeffrey-di-perna-39ab101a3/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "50%",
+                  background: "#f0f4f8",
+                  color: "#0369a1",
+                  border: "2px solid #e2e8f0",
+                  textDecoration: "none",
+                  transition: "all 0.3s ease",
+                  fontSize: "1.2rem",
+                }}
+              >
+                💼
+              </motion.a>
+            </div>
+          </motion.div>
+        </motion.section>
       </main>
     </PageTransition>
   );

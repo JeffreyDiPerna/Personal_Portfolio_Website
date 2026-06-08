@@ -1,11 +1,48 @@
 'use client';
 
+import { useState } from 'react';
 import Image from "next/image";
 import Header from "../components/header.jsx";
 import PageTransition from "../components/PageTransition";
+import { motion } from 'framer-motion';
 
-// src/app/experiences/page.js
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+  hover: {
+    x: 8,
+    boxShadow: "0 20px 50px rgba(3, 105, 161, 0.2)",
+    transition: { duration: 0.3 },
+  },
+};
+
 export default function ExperiencesPage() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   const experiences = [
     {
       title: "Machine Learning Engineer",
@@ -13,6 +50,8 @@ export default function ExperiencesPage() {
       date: "Sep 2024 – Present",
       location: "Kingston, ON",
       icon: "/qmind.ico",
+      color: "#0369a1",
+      type: "AI/ML",
       points: [
         "Building RAG-driven instruction generation; piloted with 50+ patients in clinical use.",
         "Enabled clinician self-serve uploads and QR code delivery for scalable access.",
@@ -25,6 +64,8 @@ export default function ExperiencesPage() {
       date: "Sept 2025 – Present",
       location: "Kingston, ON",
       icon: "/ENGSOC.webp",
+      color: "#06b6d4",
+      type: "Backend",
       points: [
         "Service to analyze resume structure/keywords, improving callback rates in testing.",
         "Applied NLP to enhance ATS effectiveness.",
@@ -37,6 +78,8 @@ export default function ExperiencesPage() {
       date: "June 2025 – Present",
       location: "Kingston, ON",
       icon: "/qmind.ico",
+      color: "#0891b2",
+      type: "Leadership",
       points: [
         "Expanded QMIND's external network by 25%.",
         "Built relationships with alumni, mentors, and industry stakeholders."
@@ -48,6 +91,8 @@ export default function ExperiencesPage() {
       date: "Jun 2025 – Aug 2025",
       location: "Mississauga, ON",
       icon: "/THP.jpeg",
+      color: "#0ea5e9",
+      type: "Infrastructure",
       points: [
         "Built virtual data center models in Sunbird DCIM to monitor 20+ server racks in real time across multiple locations",
         "Executed hardware install/upgrade/decommission cycles to scale data centers for patient medical record storage",
@@ -59,56 +104,239 @@ export default function ExperiencesPage() {
   return (
     <PageTransition>
       <Header />
-      <main style={styles.main}>
-        <div style={styles.container}>
-          <h1 style={styles.title}>Experience</h1>
+      <main style={{
+        minHeight: "100vh",
+        padding: "60px 24px",
+      }}>
+        <motion.div
+          style={{
+            maxWidth: "1000px",
+            margin: "0 auto",
+          }}
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          {/* Header */}
+          <motion.h1
+            variants={itemVariants}
+            style={{
+              fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
+              fontWeight: 800,
+              marginBottom: "12px",
+              background: "linear-gradient(135deg, #0369a1 0%, #06b6d4 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            Experience
+          </motion.h1>
+          <motion.div
+            variants={itemVariants}
+            style={{
+              width: "60px",
+              height: "4px",
+              background: "linear-gradient(135deg, #0369a1 0%, #06b6d4 100%)",
+              borderRadius: "2px",
+              marginBottom: "48px",
+            }}
+          />
 
-          <div style={styles.timeline}>
+          {/* Timeline */}
+          <motion.div
+            variants={containerVariants}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "24px",
+              position: "relative",
+            }}
+          >
+            {/* Decorative line */}
+            <div
+              style={{
+                position: "absolute",
+                left: "20px",
+                top: "40px",
+                bottom: "40px",
+                width: "2px",
+                background: "linear-gradient(to bottom, #0369a1 0%, #06b6d4 50%, #0ea5e9 100%)",
+                opacity: 0.3,
+                pointerEvents: "none",
+              }}
+            />
+
             {experiences.map((exp, index) => (
-              <div key={index} style={styles.experienceCard} className="experience-card">
-                <div style={styles.iconWrapper}>
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                whileHover="hover"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                style={{
+                  display: "flex",
+                  gap: "24px",
+                  padding: "28px",
+                  background: "linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%)",
+                  border: "2px solid #e2e8f0",
+                  borderRadius: "16px",
+                  boxShadow: "0 4px 15px rgba(0, 0, 0, 0.05)",
+                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                  borderLeft: `4px solid ${exp.color}`,
+                  position: "relative",
+                  zIndex: 2,
+                }}
+                className="experience-card"
+              >
+                {/* Timeline dot */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "-46px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    background: "#ffffff",
+                    border: `3px solid ${exp.color}`,
+                    boxShadow: `0 0 0 4px rgba(${parseInt(exp.color.slice(1,3), 16)}, ${parseInt(exp.color.slice(3,5), 16)}, ${parseInt(exp.color.slice(5,7), 16)}, 0.1)`,
+                  }}
+                />
+
+                {/* Icon */}
+                <motion.div
+                  initial={{ scale: 1 }}
+                  animate={{ scale: hoveredIndex === index ? 1.1 : 1 }}
+                  style={{
+                    flexShrink: 0,
+                    width: "56px",
+                    height: "56px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: `${exp.color}15`,
+                    borderRadius: "12px",
+                    border: `2px solid ${exp.color}35`,
+                    transition: "all 0.3s ease",
+                  }}
+                >
                   <Image
                     src={exp.icon}
                     alt={`${exp.company} logo`}
-                    width={48}
-                    height={48}
-                    style={styles.iconImage}
+                    width={40}
+                    height={40}
+                    style={{ objectFit: "contain" }}
                   />
-                </div>
-                <div style={styles.content}>
-                  <div style={styles.header}>
-                    <h2 style={styles.subtitle}>{exp.title}</h2>
-                    <p style={styles.company}>{exp.company}</p>
+                </motion.div>
+
+                {/* Content */}
+                <div style={{ flex: 1 }}>
+                  {/* Header */}
+                  <div style={{ marginBottom: "12px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "4px" }}>
+                      <h2 style={{
+                        fontSize: "1.35rem",
+                        fontWeight: 700,
+                        marginBottom: 0,
+                        color: "#0f172a",
+                      }}>
+                        {exp.title}
+                      </h2>
+                      <span style={{
+                        padding: "4px 12px",
+                        borderRadius: "20px",
+                        background: `${exp.color}15`,
+                        color: exp.color,
+                        fontSize: "0.75rem",
+                        fontWeight: 700,
+                        border: `1px solid ${exp.color}35`,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.03em",
+                      }}>
+                        {exp.type}
+                      </span>
+                    </div>
+                    <p style={{
+                      fontSize: "1.1rem",
+                      color: exp.color,
+                      fontWeight: 600,
+                      margin: 0,
+                    }}>
+                      {exp.company}
+                    </p>
                   </div>
-                  <div style={styles.meta}>
-                    <span style={styles.date}>📅 {exp.date}</span>
-                    <span style={styles.location}>📍 {exp.location}</span>
+
+                  {/* Meta */}
+                  <div style={{
+                    display: "flex",
+                    gap: "24px",
+                    marginBottom: "16px",
+                    flexWrap: "wrap",
+                    fontSize: "0.95rem",
+                    color: "#64748b",
+                    fontWeight: 500,
+                  }}>
+                    <span>📅 {exp.date}</span>
+                    <span>📍 {exp.location}</span>
                   </div>
-                  <ul style={styles.list}>
+
+                  {/* Points */}
+                  <ul style={{
+                    listStyle: "none",
+                    padding: 0,
+                    margin: 0,
+                  }}>
                     {exp.points.map((point, idx) => (
-                      <li key={idx} style={styles.listItem}>
-                        <span style={styles.bullet}>▹</span>
+                      <motion.li
+                        key={idx}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ 
+                          opacity: hoveredIndex === index ? 1 : 1,
+                          x: 0 
+                        }}
+                        transition={{ delay: idx * 0.05 }}
+                        style={{
+                          padding: "8px 0",
+                          position: "relative",
+                          fontSize: "0.95rem",
+                          lineHeight: 1.7,
+                          color: "#475569",
+                          paddingLeft: "24px",
+                        }}
+                      >
+                        <span style={{
+                          position: "absolute",
+                          left: 0,
+                          color: exp.color,
+                          fontSize: "1.2rem",
+                          lineHeight: 1.7,
+                          fontWeight: 700,
+                        }}>
+                          ▹
+                        </span>
                         {point}
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Styled JSX */}
         <style jsx>{`
-          .experience-card:hover {
-            transform: translateX(8px);
-            border-color: rgba(99, 102, 241, 0.5);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3), 0 0 30px rgba(99, 102, 241, 0.2);
+          @media (max-width: 640px) {
+            .experience-card {
+              flex-direction: column;
+            }
           }
 
           @media (hover: none) {
-            .experience-card:hover {
-              transform: none;
+            .experience-card {
+              transform: none !important;
+              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
             }
           }
         `}</style>
@@ -116,110 +344,3 @@ export default function ExperiencesPage() {
     </PageTransition>
   );
 }
-
-const styles = {
-  main: {
-    minHeight: "100vh",
-    padding: "48px 24px",
-  },
-  container: {
-    maxWidth: "1000px",
-    margin: "0 auto",
-  },
-  title: {
-    fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
-    fontWeight: 800,
-    marginBottom: "64px",
-    textAlign: "center",
-    background: "linear-gradient(135deg, #818cf8 0%, #06b6d4 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
-  },
-  timeline: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "32px",
-  },
-  experienceCard: {
-    display: "flex",
-    gap: "24px",
-    padding: "32px",
-    background: "rgba(255, 255, 255, 0.05)",
-    backdropFilter: "blur(10px)",
-    WebkitBackdropFilter: "blur(10px)",
-    border: "1px solid rgba(255, 255, 255, 0.1)",
-    borderRadius: "16px",
-    boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-    borderLeft: "4px solid #6366f1",
-  },
-  iconWrapper: {
-    flexShrink: 0,
-    width: "60px",
-    height: "60px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    background: "linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%)",
-    borderRadius: "12px",
-    border: "1px solid rgba(99, 102, 241, 0.3)",
-  },
-  iconImage: {
-    objectFit: "contain",
-  },
-  content: {
-    flex: 1,
-  },
-  header: {
-    marginBottom: "12px",
-  },
-  subtitle: {
-    fontSize: "1.5rem",
-    fontWeight: 700,
-    marginBottom: "4px",
-    color: "#94a3b8",
-  },
-  company: {
-    fontSize: "1.1rem",
-    color: "#818cf8",
-    fontWeight: 600,
-    margin: 0,
-  },
-  meta: {
-    display: "flex",
-    gap: "24px",
-    marginBottom: "16px",
-    flexWrap: "wrap",
-  },
-  date: {
-    fontSize: "0.95rem",
-    color: "#94a3b8",
-    fontWeight: 500,
-  },
-  location: {
-    fontSize: "0.95rem",
-    color: "#94a3b8",
-    fontWeight: 500,
-  },
-  list: {
-    listStyle: "none",
-    padding: 0,
-    margin: 0,
-  },
-  listItem: {
-    padding: "8px 0",
-    position: "relative",
-    fontSize: "1rem",
-    lineHeight: "1.7",
-    color: "#94a3b8",
-    paddingLeft: "28px",
-  },
-  bullet: {
-    position: "absolute",
-    left: 0,
-    color: "#06b6d4",
-    fontSize: "1.5rem",
-    lineHeight: "1.7",
-  },
-};
