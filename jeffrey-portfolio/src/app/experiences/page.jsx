@@ -45,9 +45,26 @@ export default function ExperiencesPage() {
 
   const experiences = [
     {
+      title: "AI Co-op",
+      company: "4AG Robotics",
+      date: "May-2026 – Aug-2026",
+      location: "Salmon Arm, BC",
+      icon: "/4ag_robotics_logo.jpeg",
+      color: "#0369a1",
+      type: "AI/ML",
+      points: [
+        "Trained an object detection and classification model on approximately 2,000 images using transfer learning, achieving over 97% classification accuracy for a robotic mushroom-harvesting system",
+        "Enhanced an internal annotation tool using Python and Qt, increasing labeling speed by 31% and accelerating supervised learning dataset preparation",
+        "Managed and quality-checked annotated datasets using Roboflow, improving label consistency and reducing storage credit usage by 17% by migrating data to local hard drives",
+        "Prepared real-mushroom measurement data used to create representative test objects, enabling realistic performance testing"
+      ]
+    },
+
+
+    {
       title: "Machine Learning Engineer",
       company: "QMIND",
-      date: "Sep 2024 – Present",
+      date: "Sep 2024 – April 2026",
       location: "Kingston, ON",
       icon: "/qmind.ico",
       color: "#0369a1",
@@ -61,21 +78,22 @@ export default function ExperiencesPage() {
     {
       title: "Software Developer",
       company: "Engineering Society",
-      date: "Sept 2025 – Present",
+      date: "Sept 2025 – April 2026",
       location: "Kingston, ON",
       icon: "/ENGSOC.webp",
       color: "#06b6d4",
-      type: "Backend",
+      type: "Backend/AI/ML",
       points: [
-        "Service to analyze resume structure/keywords, improving callback rates in testing.",
-        "Applied NLP to enhance ATS effectiveness.",
-        "Designed a secure database using MongoDB, yielding zero incidents throughout deployment"
+        "Trained an object detection and classification model on approximately 2,000 images using transfer learning, achieving over 97% classification accuracy for a robotic mushroom-harvesting system",
+        "Enhanced an internal annotation tool using Python and Qt, increasing labeling speed by 31% and accelerating supervised learning dataset preparation",
+        "Managed and quality-checked annotated datasets using Roboflow, improving label consistency and reducing storage credit usage by 17% by migrating data to local hard drives",
+        "Prepared real-mushroom measurement data used to create representative test objects, enabling realistic performance testing"
       ]
     },
     {
       title: "External Relations Coordinator",
       company: "QMIND",
-      date: "June 2025 – Present",
+      date: "June 2025 – April 2026",
       location: "Kingston, ON",
       icon: "/qmind.ico",
       color: "#0891b2",
