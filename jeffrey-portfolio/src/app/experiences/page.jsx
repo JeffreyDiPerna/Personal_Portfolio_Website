@@ -296,8 +296,8 @@ export default function ExperiencesPage() {
                     color: "#64748b",
                     fontWeight: 500,
                   }}>
-                    <span>📅 {exp.date}</span>
-                    <span>📍 {exp.location}</span>
+                    <span>{exp.date}</span>
+                    <span>{exp.location}</span>
                   </div>
 
                   {/* Points */}

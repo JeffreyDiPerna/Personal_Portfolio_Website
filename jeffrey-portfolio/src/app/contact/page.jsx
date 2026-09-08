@@ -56,7 +56,7 @@ export default function ContactPage() {
     {
       name: "GitHub",
       href: "https://github.com/JeffreyDiPerna",
-      icon: "💻",
+      icon: "/Github.svg",
       color: "#06b6d4",
       description: "View my repositories",
       type: "Portfolio"
@@ -64,7 +64,7 @@ export default function ContactPage() {
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/jeffrey-di-perna-39ab101a3/",
-      icon: "🤝",
+      icon: "/linkedin.webp",
       color: "#0891b2",
       description: "Connect professionally",
       type: "Network"
@@ -266,7 +266,17 @@ export default function ContactPage() {
                     rotate: hoveredIndex === index ? 10 : 0,
                   }}
                 >
-                  {link.icon}
+                  {link.icon.startsWith("/") ? (
+                    <Image
+                      src={link.icon}
+                      alt={`${link.name} logo`}
+                      width={40}
+                      height={40}
+                      style={{ objectFit: "contain" }}
+                    />
+                  ) : (
+                    link.icon
+                  )}
                 </motion.div>
 
                 {/* Title */}
