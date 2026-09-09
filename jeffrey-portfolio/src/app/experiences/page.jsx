@@ -45,6 +45,17 @@ export default function ExperiencesPage() {
 
   const experiences = [
     {
+      title: "Enterprise Portfolio Analyst Intern",
+      company: "Geotab",
+      date: "Sep 2026 - Present",
+      location: "Oakville, ON",
+      icon: "/geotab_logo.jpeg",
+      color: "#0369a1",
+      type: "AI/ML/Data",
+      points: [
+      ]
+    },
+    {
       title: "AI Co-op",
       company: "4AG Robotics",
       date: "May-2026 – Aug-2026",
