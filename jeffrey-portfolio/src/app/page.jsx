@@ -65,10 +65,10 @@ const buttonVariants = {
 
 export default function Home() {
   const navButtons = [
-    { href: "/about", icon: "👤", label: "About", color: '#0369a1' },
-    { href: "/projects", icon: "🚀", label: "Projects", color: '#06b6d4' },
-    { href: "/experiences", icon: "💼", label: "Experience", color: '#0891b2' },
-    { href: "/contact", icon: "📧", label: "Contact", color: '#0ea5e9' },
+    { href: "/about", icon: "/about_icon.png", label: "About", color: '#0369a1' },
+    { href: "/projects", icon: "/task-management.png", label: "Projects", color: '#06b6d4' },
+    { href: "/experiences", icon: "/briefcase.png", label: "Experience", color: '#0891b2' },
+    { href: "/contact", icon: "/mail.png", label: "Contact", color: '#0ea5e9' },
   ];
 
   return (
@@ -234,7 +234,26 @@ export default function Home() {
                   }}
                   className={`nav-btn nav-btn-${i}`}
                 >
-                  <span style={{ fontSize: "2.5rem" }}>{btn.icon}</span>
+                  <span style={{
+                    fontSize: "2.5rem",
+                    width: "40px",
+                    height: "40px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}>
+                    {btn.icon.startsWith("/") ? (
+                      <Image
+                        src={btn.icon}
+                        alt={`${btn.label} icon`}
+                        width={40}
+                        height={40}
+                        style={{ objectFit: "contain" }}
+                      />
+                    ) : (
+                      btn.icon
+                    )}
+                  </span>
                   <span>{btn.label}</span>
 
                   <style jsx>{`
@@ -253,74 +272,6 @@ export default function Home() {
             ))}
           </motion.nav>
 
-          {/* CTA Section */}
-          <motion.div
-            variants={itemVariants}
-            style={{
-              marginTop: "64px",
-              paddingTop: "48px",
-              borderTop: "1px solid #e2e8f0",
-            }}
-          >
-            <p style={{
-              color: "#64748b",
-              fontSize: "0.95rem",
-              margin: "0 0 16px 0",
-              textTransform: "uppercase",
-              letterSpacing: "0.05em",
-              fontWeight: 600,
-            }}>
-              Let&apos;s connect
-            </p>
-            <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-              <motion.a
-                href="https://github.com/JeffreyDiPerna"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "44px",
-                  height: "44px",
-                  borderRadius: "50%",
-                  background: "#f0f4f8",
-                  color: "#0369a1",
-                  border: "2px solid #e2e8f0",
-                  textDecoration: "none",
-                  transition: "all 0.3s ease",
-                  fontSize: "1.2rem",
-                }}
-              >
-                🔗
-              </motion.a>
-              <motion.a
-                href="https://www.linkedin.com/in/jeffrey-di-perna-39ab101a3/"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "44px",
-                  height: "44px",
-                  borderRadius: "50%",
-                  background: "#f0f4f8",
-                  color: "#0369a1",
-                  border: "2px solid #e2e8f0",
-                  textDecoration: "none",
-                  transition: "all 0.3s ease",
-                  fontSize: "1.2rem",
-                }}
-              >
-                💼
-              </motion.a>
-            </div>
-          </motion.div>
         </motion.section>
       </main>
     </PageTransition>

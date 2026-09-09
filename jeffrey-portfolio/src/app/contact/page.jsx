@@ -48,7 +48,7 @@ export default function ContactPage() {
     {
       name: "Email",
       href: "mailto:jeffrey.diperna@gmail.com",
-      icon: "📧",
+      icon: "/Gmail_icon_(2026).svg.webp",
       color: "#0369a1",
       description: "Get in touch directly",
       type: "Primary"
@@ -325,54 +325,6 @@ export default function ContactPage() {
             ))}
           </motion.div>
 
-          {/* Additional CTA */}
-          <motion.div
-            variants={itemVariants}
-            style={{
-              textAlign: "center",
-              padding: "40px",
-              borderRadius: "16px",
-              background: "linear-gradient(135deg, rgba(3, 105, 161, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%)",
-              border: "2px solid #e2e8f0",
-            }}
-          >
-            <p style={{
-              fontSize: "1rem",
-              color: "#475569",
-              margin: "0 0 12px 0",
-              fontWeight: 600,
-            }}>
-              Prefer a different way to connect?
-            </p>
-            <p style={{
-              fontSize: "0.95rem",
-              color: "#64748b",
-              margin: 0,
-            }}>
-              Send me an email at{" "}
-              <a
-                href="mailto:jeffrey.diperna@gmail.com"
-                style={{
-                  color: "#0369a1",
-                  fontWeight: 700,
-                  textDecoration: "none",
-                  borderBottom: "2px solid #0369a1",
-                  transition: "all 0.3s ease",
-                }}
-                className="email-link"
-              >
-                jeffrey.diperna@gmail.com
-              </a>
-              {" "}and I'll get back to you as soon as possible!
-            </p>
-
-            <style jsx>{`
-              .email-link:hover {
-                color: #06b6d4;
-                border-bottom-color: #06b6d4;
-              }
-            `}</style>
-          </motion.div>
         </motion.div>
       </main>
     </PageTransition>
