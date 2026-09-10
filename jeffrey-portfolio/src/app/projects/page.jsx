@@ -50,6 +50,28 @@ export default function ProjectsPage() {
 
   const projects = [
     {
+      title: "PostOpCare: Using AI to optimize medical handouts",
+      icon: "🏥",
+      color: "#0f766e",
+      description: "AI-powered post-surgical care guidance",
+      points: [
+        "Developed RAG-driven instruction generation using Python, piloted with 100+ patients in real clinical use",
+        "Enabled self-serve clinician uploads and QR code delivery to improve information for post-surgical operation care",
+        "Synthesized generative AI responses with scientific literature and patient medical data to ensure optimal patient guidance, achieving 89% accuracy with physician recommendations",
+      ]
+    },
+    {
+      title: "Resume and coverletter optimizer",
+      icon: "📝",
+      color: "#be123c",
+      description: "AI-powered resume and cover letter analysis",
+      points: [
+        "Created a service that analyzes resume structure and keywords, improving interview callback rates by 30%",
+        "Leveraged NLP to analyze resumes and enhance effectiveness for ATS systems on a specific job posting",
+        "Reduced resume editing time by 35 minutes per user and integrated the project into Queen's official career service",
+      ]
+    },
+    {
       title: "RAG Agent",
       icon: "🔍",
       color: "#0369a1",
