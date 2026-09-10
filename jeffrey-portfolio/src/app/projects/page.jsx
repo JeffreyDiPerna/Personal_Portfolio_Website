@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from "next/image";
 import Header from "../components/header.jsx";
 import PageTransition from "../components/PageTransition";
 import { motion, AnimatePresence } from 'framer-motion';
@@ -290,7 +291,13 @@ export default function ProjectsPage() {
                         }}
                         aria-label="View on GitHub"
                       >
-                        🔗
+                        <Image
+                          src="/Github.svg"
+                          alt=""
+                          width={24}
+                          height={24}
+                          style={{ objectFit: "contain" }}
+                        />
                       </motion.a>
                     )}
                   </div>
