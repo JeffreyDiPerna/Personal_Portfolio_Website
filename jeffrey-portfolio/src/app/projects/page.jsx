@@ -51,9 +51,9 @@ export default function ProjectsPage() {
   const projects = [
     {
       title: "PostOpCare: Using AI to optimize medical handouts",
-      icon: "🏥",
-      color: "#0f766e",
+      color: "#0369a1",
       description: "AI-powered post-surgical care guidance",
+      date: "Sept 2025 - Apr 2026",
       points: [
         "Developed RAG-driven instruction generation using Python, piloted with 100+ patients in real clinical use",
         "Enabled self-serve clinician uploads and QR code delivery to improve information for post-surgical operation care",
@@ -62,9 +62,9 @@ export default function ProjectsPage() {
     },
     {
       title: "Resume and coverletter optimizer",
-      icon: "📝",
-      color: "#be123c",
+      color: "#0369a1",
       description: "AI-powered resume and cover letter analysis",
+      date: "Sept 2025 - Apr 2026",
       points: [
         "Created a service that analyzes resume structure and keywords, improving interview callback rates by 30%",
         "Leveraged NLP to analyze resumes and enhance effectiveness for ATS systems on a specific job posting",
@@ -72,10 +72,9 @@ export default function ProjectsPage() {
       ]
     },
     {
-      title: "RAG Agent",
-      icon: "🔍",
+      title: "RAG Agent for Document Analysis",
       color: "#0369a1",
-      date: "2025",
+      date: "Sept 2025",
       githubLink: "https://github.com/JeffreyDiPerna/RAG_Agent",
       description: "Intelligent document analysis system",
       points: [
@@ -85,10 +84,9 @@ export default function ProjectsPage() {
       ]
     },
     {
-      title: "AI‑Powered ASL Recognition",
+      title: "American Sign Language Translator",
       date: "Sep 2024 – Mar 2025",
-      icon: "🤖",
-      color: "#06b6d4",
+      color: "#0369a1",
       description: "Deep-learning ASL gesture detection",
       githubLink: "https://github.com/JeffreyDiPerna/AI_ASL_Sign_Language_Translator",
       points: [
@@ -100,10 +98,9 @@ export default function ProjectsPage() {
       ]
     },
     {
-      title: "AI Stock Price Predictor",
+      title: "Stock Price Predicter",
       date: "Dec 2025 – Jan 2026",
-      icon: "📈",
-      color: "#0891b2",
+      color: "#0369a1",
       description: "Time-series forecasting with LSTM",
       githubLink: "https://github.com/JeffreyDiPerna/stock_price_predictor",
       points: [
@@ -114,8 +111,7 @@ export default function ProjectsPage() {
     {
       title: "HOOP Cards",
       date: "Sep 2025 – Dec 2025",
-      icon: "🏀",
-      color: "#0ea5e9",
+      color: "#0369a1",
       description: "Fantasy basketball full-stack app",
       githubLink: "https://github.com/JeffreyDiPerna/Hoop_Cards",
       points: [
@@ -126,8 +122,7 @@ export default function ProjectsPage() {
     {
       title: "Queen's Hyperloop Design Team Website",
       date: "Jan 2024 – Apr 2024",
-      icon: "🚄",
-      color: "#06b6d4",
+      color: "#0369a1",
       description: "Secure team portal with user management",
       points: [
         "Collaborated on a secure site with login/logout, announcements, and profiles for 100+ users",

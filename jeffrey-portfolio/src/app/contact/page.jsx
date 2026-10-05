@@ -72,7 +72,7 @@ export default function ContactPage() {
     {
       name: "Resume",
       href: "/resume.pdf",
-      icon: "📄",
+      icon: "/resume.png",
       color: "#0ea5e9",
       description: "Download my CV",
       type: "Document"

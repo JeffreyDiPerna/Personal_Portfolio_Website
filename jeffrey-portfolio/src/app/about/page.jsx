@@ -43,25 +43,21 @@ const cardVariants = {
 const skillCategories = [
   {
     title: "Languages",
-    icon: "💻",
     skills: ["Python", "C/C++", "Java", "JavaScript", "HTML/CSS", "Assembly", "MATLAB"],
     color: "#0369a1"
   },
   {
     title: "Libraries & Frameworks",
-    icon: "📚",
     skills: ["NumPy", "Pandas", "Scikit-learn", "TensorFlow", "PyTorch", "Matplotlib", "Hugging Face", "React.js", "Next.js"],
     color: "#06b6d4"
   },
   {
     title: "Backend & Tools",
-    icon: "🔧",
     skills: ["Flask", "Qt", "Git", "Docker", "Linux", "MongoDB", "REST APIs", "SQL", "Jupyter"],
     color: "#0891b2"
   },
   {
     title: "Specializations",
-    icon: "🧠",
     skills: ["Machine Learning", "Deep Learning", "Computer Vision", "NLP", "Full-Stack Dev", "AI/ML Engineering", "Data Analysis"],
     color: "#0ea5e9"
   },
@@ -143,7 +139,7 @@ export default function AboutPage() {
                 fontWeight: 700,
                 marginBottom: "12px",
                 color: "#0369a1",
-              }}>🎓 Education</h3>
+              }}>Education</h3>
               <p style={{ color: "#475569", lineHeight: 1.7 }}>
                 Computer Engineering at Queen&apos;s University, focusing on AI, Machine Learning, 
                 and Full-Stack Development with practical experience in real-world projects.
@@ -164,7 +160,7 @@ export default function AboutPage() {
                 fontWeight: 700,
                 marginBottom: "12px",
                 color: "#06b6d4",
-              }}>🚀 Passion</h3>
+              }}>Passion</h3>
               <p style={{ color: "#475569", lineHeight: 1.7 }}>
                 Driven by the intersection of AI and fintech. I build intelligent systems that solve 
                 real-world problems and create meaningful impact through technology.
