@@ -171,7 +171,12 @@ export default function Home() {
               color: "#0f172a",
             }}
           >
-            Computer Engineering Student @ Queen&apos;s University
+            <span style={{ display: "block" }}>
+              Enterprise Portfolio Analyst Intern @ Geotab
+            </span>
+            <span style={{ display: "block" }}>
+              Computer Engineering Student @ Queen&apos;s University
+            </span>
           </motion.p>
 
           {/* Description */}

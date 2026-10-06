@@ -53,6 +53,7 @@ export default function ProjectsPage() {
       title: "PostOpCare: Using AI to optimize medical handouts",
       color: "#0369a1",
       description: "AI-powered post-surgical care guidance",
+      githubLink: "https://github.com/JeffreyDiPerna/postopcare-ai",
       date: "Sept 2025 - Apr 2026",
       points: [
         "Developed RAG-driven instruction generation using Python, piloted with 100+ patients in real clinical use",
@@ -106,27 +107,6 @@ export default function ProjectsPage() {
       points: [
         "Developed a time-series forecasting pipeline that processes historical stock data using Python, PyTorch, and a long-short term memory architecture",
         "Trained the model to achieve an error < 4% to the actual stock price using Adam optimization",
-      ]
-    },
-    {
-      title: "HOOP Cards",
-      date: "Sep 2025 – Dec 2025",
-      color: "#0369a1",
-      description: "Fantasy basketball full-stack app",
-      githubLink: "https://github.com/JeffreyDiPerna/Hoop_Cards",
-      points: [
-        "Built a full-stack fantasy basketball application, keeping interactions under 200ms using C++ and QT",
-        "Created a responsive system to manage 70+ user accounts and data from 400+ NBA players with SQL",
-      ]
-    },
-    {
-      title: "Queen's Hyperloop Design Team Website",
-      date: "Jan 2024 – Apr 2024",
-      color: "#0369a1",
-      description: "Secure team portal with user management",
-      points: [
-        "Collaborated on a secure site with login/logout, announcements, and profiles for 100+ users",
-        "Contributed to front-end development, creating visual aspects of the site using HTML and CSS",
       ]
     }
   ];
