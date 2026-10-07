@@ -80,7 +80,7 @@ export default function ProjectsPage() {
       description: "Intelligent document analysis system",
       points: [
         "Created RAG agent to answer questions about submitted documents using Python, Docker and REST API's",
-        "Developed a chunking and overlap strategy to increase context hit rate, using load_and_chunk_pdf (tunable sizes + overlap); raised hit@k by +18pp and reduced average tokens retrieved by ~22%.",
+        "Developed a chunking and overlap strategy to increase context hit rate and reduced average tokens retrieved by ~22%.",
         "Implemented scheduled refresh jobs to keep embeddings current, using Inngest recurring events with datetime windows; maintained <24h staleness on document updates with 0 missed refreshes over 4 weeks.",
       ]
     },
