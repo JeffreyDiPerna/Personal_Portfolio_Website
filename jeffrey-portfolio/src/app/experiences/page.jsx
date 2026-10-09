@@ -45,7 +45,7 @@ export default function ExperiencesPage() {
 
   const experiences = [
     {
-      title: "Enterprise Portfolio Analyst Intern",
+      title: "Enterprise Portfolio Business Analyst Intern",
       company: "Geotab",
       date: "Sep 2026 - Present",
       location: "Oakville, ON",
