@@ -95,10 +95,9 @@ export default function ExperiencesPage() {
       color: "#06b6d4",
       type: "Backend/AI/ML",
       points: [
-        "Trained an object detection and classification model on approximately 2,000 images using transfer learning, achieving over 97% classification accuracy for a robotic mushroom-harvesting system",
-        "Enhanced an internal annotation tool using Python and Qt, increasing labeling speed by 31% and accelerating supervised learning dataset preparation",
-        "Managed and quality-checked annotated datasets using Roboflow, improving label consistency and reducing storage credit usage by 17% by migrating data to local hard drives",
-        "Prepared real-mushroom measurement data used to create representative test objects, enabling realistic performance testing"
+        "Improved interview callback rates by 30% by building an AI-powered service that analyzes resume structure, content, and keywords against targeted job postings using Python and Gemini API",
+        "Reduced resume-editing time by 35 minutes per user by automating personalized recommendations for skills, keywords, and content improvements",
+        "Improved applicant tracking system alignment by applying natural language processing to identify gaps between resumes and job requirements, measured by stronger keyword and skill coverage"
       ]
     },
     {
