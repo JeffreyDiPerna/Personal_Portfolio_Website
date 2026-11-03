@@ -123,8 +123,8 @@ export default function Home() {
             style={{
               position: "relative",
               marginBottom: "48px",
-              width: "140px",
-              height: "140px",
+              width: "clamp(160px, 22vw, 220px)",
+              height: "clamp(160px, 22vw, 220px)",
               borderRadius: "50%",
               overflow: "hidden",
               margin: "0 auto 48px",
@@ -137,8 +137,8 @@ export default function Home() {
             <Image 
               src="/Headshot.png" 
               alt="Jeffrey Di Perna" 
-              width={140}
-              height={140}
+              width={220}
+              height={220}
               style={{ width: "100%", height: "100%" }}
             />
           </motion.div>
