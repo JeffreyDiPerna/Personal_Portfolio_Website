@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from "next/image";
 import Header from "../components/header.jsx";
 import PageTransition from "../components/PageTransition";
@@ -42,11 +42,6 @@ const contentVariants = {
 
 export default function ProjectsPage() {
   const [activeTab, setActiveTab] = useState(0);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const projects = [
     {
@@ -116,7 +111,7 @@ export default function ProjectsPage() {
       <Header />
       <main style={{
         minHeight: "100vh",
-        padding: "60px 24px",
+        padding: "clamp(32px, 6vw, 60px) clamp(16px, 4vw, 48px)",
       }}>
         <motion.div
           style={{
@@ -202,8 +197,7 @@ export default function ProjectsPage() {
           {/* Tab Content */}
           <div style={{ minHeight: "500px" }}>
             <AnimatePresence mode="wait">
-              {mounted && (
-                <motion.section
+              <motion.section
                   key={activeTab}
                   variants={contentVariants}
                   initial="hidden"
@@ -222,7 +216,7 @@ export default function ProjectsPage() {
                   className="project-content"
                 >
                   {/* Project Header */}
-                  <div style={{
+                  <div className="project-header" style={{
                     display: "flex",
                     alignItems: "center",
                     gap: "20px",
@@ -334,8 +328,7 @@ export default function ProjectsPage() {
                       </motion.li>
                     ))}
                   </ul>
-                </motion.section>
-              )}
+              </motion.section>
             </AnimatePresence>
           </div>
         </motion.div>

@@ -88,7 +88,7 @@ export default function ContactPage() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "60px 24px",
+        padding: "clamp(32px, 6vw, 60px) clamp(16px, 4vw, 48px)",
         position: "relative",
         overflow: "hidden",
       }}>
@@ -139,7 +139,7 @@ export default function ContactPage() {
               backgroundClip: "text",
             }}
           >
-            Let's Connect
+            Let&apos;s Connect
           </motion.h1>
 
           {/* Subtitle */}
@@ -154,7 +154,7 @@ export default function ContactPage() {
               lineHeight: 1.8,
             }}
           >
-            I'm always excited to discuss new opportunities, collaborate on innovative projects, 
+            I&apos;m always excited to discuss new opportunities, collaborate on innovative projects, 
             or simply chat about technology and AI. Reach out through any of the channels below!
           </motion.p>
 
@@ -175,7 +175,7 @@ export default function ContactPage() {
             variants={containerVariants}
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
               gap: "24px",
               marginBottom: "48px",
             }}

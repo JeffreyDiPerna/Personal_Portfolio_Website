@@ -71,7 +71,7 @@ export default function AboutPage() {
       <Header />
       <main style={{
         minHeight: "100vh",
-        padding: "60px 24px",
+        padding: "clamp(32px, 6vw, 60px) clamp(16px, 4vw, 48px)",
         background: "inline-gradient(135deg, rgba(3, 105, 161, 0.02) 0%, rgba(6, 182, 212, 0.02) 100%)",
       }}>
         <motion.div
@@ -109,7 +109,7 @@ export default function AboutPage() {
               maxWidth: "750px",
               margin: "0 auto",
             }}>
-              I'm a Computer Engineering student at Queen&apos;s University passionate about building 
+              I&apos;m a Computer Engineering student at Queen&apos;s University passionate about building 
               intelligent solutions that combine machine learning, software engineering, and financial technology. 
               I thrive at the intersection of innovation and practical implementation.
             </p>
@@ -120,7 +120,7 @@ export default function AboutPage() {
             variants={containerVariants}
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))",
               gap: "32px",
               marginBottom: "64px",
             }}
@@ -190,7 +190,7 @@ export default function AboutPage() {
             variants={containerVariants}
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))",
               gap: "24px",
             }}
           >

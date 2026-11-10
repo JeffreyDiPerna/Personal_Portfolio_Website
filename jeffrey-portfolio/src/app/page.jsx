@@ -78,7 +78,7 @@ export default function Home() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "60px 24px",
+        padding: "clamp(32px, 6vw, 60px) clamp(16px, 4vw, 48px)",
         position: "relative",
         overflow: "hidden",
       }}>

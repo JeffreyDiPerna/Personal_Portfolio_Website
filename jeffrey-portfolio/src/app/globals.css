@@ -378,4 +378,33 @@ p {
   .btn {
     padding: 12px 24px;
   }
+
+  .project-content {
+    padding: 20px !important;
+  }
+
+  .project-header {
+    align-items: flex-start !important;
+    flex-wrap: wrap;
+    gap: 16px !important;
+  }
+
+  .project-header > div {
+    min-width: 0;
+    flex: 1 1 220px !important;
+  }
+
+  .experience-card {
+    padding: 20px !important;
+    gap: 16px !important;
+  }
+
+  .experience-card .timeline-dot {
+    display: none;
+  }
+
+  .experience-heading {
+    align-items: flex-start !important;
+    flex-wrap: wrap;
+  }
 }

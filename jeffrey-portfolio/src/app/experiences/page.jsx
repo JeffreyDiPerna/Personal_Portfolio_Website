@@ -134,7 +134,7 @@ export default function ExperiencesPage() {
       <Header />
       <main style={{
         minHeight: "100vh",
-        padding: "60px 24px",
+        padding: "clamp(32px, 6vw, 60px) clamp(16px, 4vw, 48px)",
       }}>
         <motion.div
           style={{
@@ -231,6 +231,7 @@ export default function ExperiencesPage() {
                     border: `3px solid ${exp.color}`,
                     boxShadow: `0 0 0 4px rgba(${parseInt(exp.color.slice(1,3), 16)}, ${parseInt(exp.color.slice(3,5), 16)}, ${parseInt(exp.color.slice(5,7), 16)}, 0.1)`,
                   }}
+                  className="timeline-dot"
                 />
 
                 {/* Icon */}
@@ -263,7 +264,7 @@ export default function ExperiencesPage() {
                 <div style={{ flex: 1 }}>
                   {/* Header */}
                   <div style={{ marginBottom: "12px" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "4px" }}>
+                    <div className="experience-heading" style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "4px" }}>
                       <h2 style={{
                         fontSize: "1.35rem",
                         fontWeight: 700,
